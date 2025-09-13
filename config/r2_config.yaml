@@ -1,0 +1,239 @@
+# R2 Astromech Unified Configuration
+# This file contains all configuration for the modular R2 system
+
+# System configuration
+system:
+  name: "R2-D2 Astromech Unit"
+  version: "2.0.0"
+  environment: "development"
+  debug: true
+  log_level: "INFO"
+
+# Module configurations
+modules:
+  ai:
+    enabled: true
+    auto_load: true
+    default_model: "phi-3"
+    model_path: "microsoft/Phi-3-mini-4k-instruct"
+    device: "auto"
+    max_length: 512
+    temperature: 0.7
+    do_sample: true
+    top_p: 0.9
+    top_k: 50
+    personality_mode: "helpful"
+    response_style: "concise"
+    cache_size: 1000
+    enable_memory: true
+    
+  discovery:
+    enabled: true
+    scan_timeout: 30
+    max_concurrent_scans: 5
+    default_network: "192.168.1.0/24"
+    port_scan_timeout: 3
+    ping_timeout: 1
+    common_ports: [22, 23, 53, 80, 135, 139, 443, 445, 993, 995, 1723, 3389, 5900, 8080]
+    
+  personality:
+    enabled: true
+    audio_device: "default"
+    volume: 0.7
+    sound_directory: "data/sounds"
+    vocabulary_file: "data/vocabulary.json"
+    use_complex_patterns: true
+    randomization: 0.3
+    prefer_short_sounds: false
+    emotional_modulation: true
+    
+  communication:
+    enabled: false
+    api_port: 8080
+    websocket_port: 8081
+    cors_origins: ["*"]
+    rate_limiting:
+      enabled: true
+      requests_per_minute: 60
+    
+  monitoring:
+    enabled: true
+    health_check_interval: 30
+    metrics_collection: true
+    alert_thresholds:
+      memory_usage: 0.8
+      cpu_usage: 0.8
+      disk_usage: 0.9
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "logs/r2.log"
+  max_size_mb: 10
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  console: true
+
+# Performance settings
+performance:
+  max_concurrent_operations: 10
+  operation_timeout: 300
+  cache_size: 1000
+  enable_caching: true
+  enable_quantization: false
+  mixed_precision: true
+  batch_size: 1
+
+# Security settings
+security:
+  input_validation: true
+  max_input_length: 1000
+  content_filtering: false
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+
+# Environment-specific overrides
+environments:
+  development:
+    system:
+      debug: true
+    logging:
+      level: "DEBUG"
+    modules:
+      ai:
+        auto_load: false  # Don't auto-load AI in dev for faster startup
+      personality:
+        volume: 0.5  # Quieter in development
+        
+  production:
+    system:
+      debug: false
+    logging:
+      level: "WARNING"
+    performance:
+      enable_caching: true
+      enable_quantization: true
+    modules:
+      communication:
+        enabled: true  # Enable API in production
+        
+  testing:
+    system:
+      debug: true
+    modules:
+      ai:
+        enabled: false  # Disable AI for faster tests
+      personality:
+        enabled: false  # Disable audio for tests
+      discovery:
+        scan_timeout: 5  # Faster scans for tests
+    logging:
+      level: "ERROR"  # Minimal logging in tests
+
+# AI-specific configuration
+ai:
+  models:
+    phi-3:
+      model_path: "microsoft/Phi-3-mini-4k-instruct"
+      device: "auto"
+      max_length: 512
+      temperature: 0.7
+      personality_mode: "helpful"
+      response_style: "concise"
+      
+  translation:
+    use_context: true
+    context_window: 10
+    emotion_analysis: true
+    personality:
+      base_mood: "curious"
+      expressiveness: "medium"
+      chattiness: "medium"
+    sounds:
+      use_complex_patterns: true
+      randomization: 0.3
+      prefer_short_sounds: false
+      emotional_modulation: true
+
+# Network discovery configuration
+discovery:
+  networks:
+    default: "192.168.1.0/24"
+    custom_networks: []
+    
+  protocols:
+    iot_enabled: true
+    wireless_enabled: false
+    smart_home_enabled: false
+    
+  scanning:
+    ping_sweep: true
+    port_scan: true
+    service_detection: true
+    os_fingerprinting: false
+
+# Personality and audio configuration
+personality:
+  audio:
+    device_priority: ["default", "hw:3,0", "hw:1,0", "hw:0,3"]
+    sample_rate: 22050
+    channels: 1
+    buffer_size: 4096
+    
+  vocabulary:
+    scanner_events:
+      scan_start: "q a"
+      device_found: "z"
+      scan_complete: "c1"
+      port_scan_start: "a s1"
+      port_found: "z s1"
+      scan_error: "c g1"
+      startup: "v y"
+      shutdown: "q q v"
+      
+  emotions:
+    happy: ["a", "b", "c"]
+    sad: ["d", "e", "f"]
+    excited: ["g", "h", "i"]
+    confused: ["j", "k", "l"]
+    urgent: ["m", "n", "o"]
+
+# Communication API configuration
+communication:
+  api:
+    title: "R2-D2 Astromech API"
+    version: "2.0.0"
+    description: "API for controlling R2-D2 Astromech Unit"
+    
+  endpoints:
+    health: "/health"
+    status: "/status"
+    modules: "/modules"
+    operations: "/operations"
+    events: "/events"
+    
+  websocket:
+    heartbeat_interval: 30
+    max_connections: 100
+
+# Monitoring and metrics
+monitoring:
+  metrics:
+    enabled: true
+    collection_interval: 60
+    retention_days: 7
+    
+  alerts:
+    enabled: true
+    channels: ["log", "console"]
+    thresholds:
+      memory_usage: 0.8
+      cpu_usage: 0.8
+      disk_usage: 0.9
+      error_rate: 0.1
+      
+  health_checks:
+    interval: 30
+    timeout: 10
+    retries: 3
