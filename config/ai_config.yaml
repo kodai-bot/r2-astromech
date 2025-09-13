@@ -1,0 +1,153 @@
+# R2 Astromech AI Configuration
+# Configuration for AI models and translation systems
+
+# Model configurations
+models:
+  phi-3:
+    # Model path - can be local path or HuggingFace model ID
+    model_path: "microsoft/Phi-3-mini-4k-instruct"
+    
+    # Device configuration - auto, cuda, or cpu
+    device: "auto"
+    
+    # Generation parameters
+    max_length: 512
+    temperature: 0.7
+    do_sample: true
+    top_p: 0.9
+    top_k: 50
+    
+    # R2-specific settings
+    personality_mode: "helpful"  # helpful, cheeky, curious, cautious
+    response_style: "concise"    # concise, detailed, playful
+    
+    # Memory and caching
+    cache_size: 1000
+    enable_memory: true
+
+# Default model to load on startup
+default_model: "phi-3"
+
+# Auto-load model on startup
+auto_load: true
+
+# Device preferences (in order of preference)
+device_preferences:
+  - "cuda"
+  - "cpu"
+
+# Translation settings
+translation:
+  # Enable context-aware translation
+  use_context: true
+  
+  # Maximum conversation history to consider
+  context_window: 10
+  
+  # Enable emotion analysis
+  emotion_analysis: true
+  
+  # R2 personality settings
+  personality:
+    base_mood: "curious"        # curious, helpful, playful, cautious
+    expressiveness: "medium"    # low, medium, high
+    chattiness: "medium"        # low, medium, high
+    
+  # Sound generation settings
+  sounds:
+    # Enable complex sound patterns
+    use_complex_patterns: true
+    
+    # Randomization level for sounds
+    randomization: 0.3  # 0.0 = deterministic, 1.0 = completely random
+    
+    # Sound duration preferences
+    prefer_short_sounds: false
+    
+    # Enable emotional modulation
+    emotional_modulation: true
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  
+  # Log conversation history
+  log_conversations: true
+  
+  # Log model performance metrics
+  log_performance: true
+  
+  # Maximum log file size (MB)
+  max_log_size: 10
+
+# Performance settings
+performance:
+  # Enable model quantization for better performance
+  enable_quantization: false
+  
+  # Use mixed precision (if supported)
+  mixed_precision: true
+  
+  # Batch size for processing
+  batch_size: 1
+  
+  # Enable gradient checkpointing
+  gradient_checkpointing: false
+
+# Security settings
+security:
+  # Validate inputs for safety
+  input_validation: true
+  
+  # Maximum input length
+  max_input_length: 1000
+  
+  # Enable content filtering
+  content_filtering: false
+
+# Advanced settings
+advanced:
+  # Enable experimental features
+  experimental_features: false
+  
+  # Custom model loading timeout (seconds)
+  model_load_timeout: 300
+  
+  # Enable debugging mode
+  debug_mode: false
+  
+  # Custom prompt templates
+  custom_prompts:
+    system_prompt: |
+      You are R2-D2, the beloved astromech droid from Star Wars. 
+      You should respond in character, being helpful, curious, and sometimes a bit cheeky. 
+      Keep responses concise and in R2's personality.
+    
+    translation_prompt: |
+      Translate the following human message into R2-D2 style beeps and sounds: {input}
+      Consider the emotion and context of the message.
+
+# Model-specific overrides
+model_overrides:
+  phi-3:
+    # Override specific settings for Phi-3
+    temperature: 0.8
+    max_length: 256
+    
+# Environment-specific configurations
+environments:
+  development:
+    debug_mode: true
+    log_conversations: true
+    experimental_features: true
+    
+  production:
+    debug_mode: false
+    log_conversations: false
+    experimental_features: false
+    enable_quantization: true
+    
+  testing:
+    auto_load: false
+    log_conversations: false
+    use_context: false

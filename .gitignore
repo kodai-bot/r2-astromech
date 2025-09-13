@@ -1,0 +1,47 @@
+# Virtual environments
+r2_venv/
+r2_venv_new/
+venv/
+env/
+ENV/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Logs
+logs/
+*.log
+
+# AI Models (large files)
+data/models/*.bin
+data/models/*.safetensors
+data/models/*.gguf
+
+# Environment variables
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# PyTorch
+*.pth
+*.pt
+
+# Audio output files (generated)
+data/sounds/last_r2_output.wav
