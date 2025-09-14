@@ -105,8 +105,8 @@ class Configuration(IConfiguration):
             },
             'modules': {
                 'ai': {
-                    'enabled': True,
-                    'auto_load': True,
+                    'enabled': False,
+                    'auto_load': False,
                     'default_model': 'phi-3',
                     'model_path': 'microsoft/Phi-3-mini-4k-instruct',
                     'device': 'auto',
