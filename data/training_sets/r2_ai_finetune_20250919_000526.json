@@ -1,0 +1,48 @@
+{
+  "task_type": "ai_enhanced_device_classification",
+  "created_at": "2025-09-19T00:05:26.737624",
+  "total_examples": 6,
+  "ai_enhanced_count": 6,
+  "examples": [
+    {
+      "input": "Device with AI: : 'unknown'\n- Type: 'unknown.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - If you are using a USB cable,.",
+      "output": "unknown",
+      "confidence": 0.4,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - Category: Uncategorized\n- View.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with has hostname, AI: :'s' port:'s' port.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - If you are using a USB cable,.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - Type: 'unknown' no ports.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    }
+  ],
+  "metadata": {
+    "ai_model": "weiser/82M-0.4",
+    "source": "R2-D2 Network Discovery + TinyLLM"
+  }
+}

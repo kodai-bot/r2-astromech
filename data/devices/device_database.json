@@ -1,0 +1,947 @@
+{
+  "192.168.1.1": {
+    "first_seen": "2025-09-23T00:16:50.669924",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:45:07.129547",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-19T01:57:18.482406",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-19T02:03:43.712361",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-20T01:19:58.618625",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-20T01:50:26.028607",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-20T01:56:39.260708",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.401231",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.915488",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.268306",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.228476",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.1",
+    "status": "active",
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T00:16:50.669924",
+    "scan_id": "discovery_demo_20250923_001650",
+    "analysis_timeout": true,
+    "last_seen": "2025-09-23T00:18:38.228448",
+    "hostname": null,
+    "mac_address": "04:71:53:98:1c:a1",
+    "manufacturer": null,
+    "device_type": null,
+    "os_family": null,
+    "open_ports": [],
+    "services": {},
+    "mdns_services": [],
+    "snmp_info": {},
+    "confidence": 0.0
+  },
+  "192.168.1.6": {
+    "first_seen": "2025-09-23T00:16:50.669827",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:46:48.389091",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:59:00.196811",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T02:05:24.687307",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:21:40.153502",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:51:48.327170",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:58:01.826691",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.339446",
+        "status": "active",
+        "open_ports": [
+          41800
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.857372",
+        "status": "active",
+        "open_ports": [
+          41800
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.207563",
+        "status": "active",
+        "open_ports": [
+          41800
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.167927",
+        "status": "active",
+        "open_ports": [
+          41800
+        ],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.6",
+    "status": "active",
+    "discovery_method": "arp_table+mdns",
+    "timestamp": "2025-09-23T00:16:50.669827",
+    "scan_id": "discovery_demo_20250923_001650",
+    "scan_type": "detailed",
+    "analysis_phase": "complete",
+    "host": "192.168.1.6",
+    "open_ports": [
+      41800
+    ],
+    "services": {},
+    "scan_time": "2025-09-14T23:31:12.563331",
+    "ports_scanned": 14,
+    "hostname": "PS4-88EE69",
+    "fqdn": "unknown",
+    "hostname_resolution_time": "2025-09-20T01:58:01.779974",
+    "os_type": "Linux/Unix-like",
+    "os_family": null,
+    "ttl_signature": 64,
+    "os_confidence": 0.7,
+    "service_banners": {},
+    "detected_services": {},
+    "web_servers": [],
+    "database_servers": [],
+    "iot_protocols": [],
+    "device_type": "game_console",
+    "device_category": "unknown",
+    "confidence": 0.3,
+    "identifying_features": [],
+    "manufacturer": "Unknown Manufacturer",
+    "mac_address": "c8:63:f1:88:ee:69",
+    "oui": "C863F1",
+    "vendor_info": {},
+    "analysis_complete": true,
+    "last_seen": "2025-09-23T00:18:38.167898",
+    "os_info": {},
+    "scan_method": "nmap",
+    "nmap_data": {
+      "scan_type": "TCP connect scan with OS and service detection"
+    },
+    "mdns_services": [
+      {
+        "name": "SpZc-88EE69",
+        "type": "_spotify-connect._tcp",
+        "port": "41800",
+        "txt_record": "\"CPath=/spConn\""
+      }
+    ],
+    "snmp_info": {}
+  },
+  "192.168.1.24": {
+    "first_seen": "2025-09-23T00:16:50.669981",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:46:12.226448",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-19T01:58:23.582322",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-19T02:04:48.808680",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-20T01:21:03.722731",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-20T01:51:31.119960",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-20T01:57:44.357400",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.475197",
+        "status": "active",
+        "open_ports": [
+          445,
+          9,
+          21,
+          0
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.966382",
+        "status": "active",
+        "open_ports": [
+          9,
+          0,
+          445,
+          21
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.303115",
+        "status": "active",
+        "open_ports": [
+          21,
+          9,
+          445,
+          0
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.266161",
+        "status": "active",
+        "open_ports": [
+          21,
+          9,
+          445,
+          0
+        ],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.24",
+    "status": "active",
+    "discovery_method": "arp_table+mdns",
+    "timestamp": "2025-09-23T00:16:50.669981",
+    "scan_id": "discovery_demo_20250923_001650",
+    "analysis_timeout": true,
+    "last_seen": "2025-09-23T00:18:38.266150",
+    "hostname": "Cibo",
+    "mac_address": "90:09:d0:60:db:79",
+    "manufacturer": null,
+    "device_type": null,
+    "os_family": null,
+    "open_ports": [
+      21,
+      9,
+      445,
+      0
+    ],
+    "services": {},
+    "mdns_services": [
+      {
+        "name": "Cibo",
+        "type": "_ftp._tcp",
+        "port": "21",
+        "txt_record": ""
+      },
+      {
+        "name": "Cibo",
+        "type": "_adisk._tcp",
+        "port": "9",
+        "txt_record": "\"dk0=adVF=0x82,adVN=time machine folder\" \"sys=adVF=0x100\""
+      },
+      {
+        "name": "Cibo",
+        "type": "_smb._tcp",
+        "port": "445",
+        "txt_record": ""
+      },
+      {
+        "name": "Cibo",
+        "type": "_device-info._tcp",
+        "port": "0",
+        "txt_record": "\"model=Xserve\""
+      }
+    ],
+    "snmp_info": {},
+    "confidence": 0.0
+  },
+  "192.168.1.25": {
+    "first_seen": "2025-09-14T22:55:07.813279",
+    "discovery_count": 12,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T00:34:54.387537",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T00:39:23.017846",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T00:44:54.884740",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T00:58:31.815698",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:04:42.065640",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:39:15.807745",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:46:18.103767",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:58:29.452371",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T02:04:54.579043",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:21:09.657370",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      }
+    ],
+    "ip": "192.168.1.25",
+    "status": "active",
+    "discovery_method": "ping",
+    "timestamp": "2025-09-20T01:21:08.757117",
+    "scan_id": "scan_20250920_011758",
+    "scan_type": "detailed",
+    "analysis_phase": "complete",
+    "host": "192.168.1.25",
+    "open_ports": [],
+    "services": {},
+    "scan_time": "2025-09-14T23:32:12.778463",
+    "ports_scanned": 14,
+    "hostname": "dylan-hpelitedesk705",
+    "fqdn": "dylan-hpelitedesk705.station",
+    "hostname_resolution_time": "2025-09-20T01:21:09.603421",
+    "os_type": "Linux/Unix-like",
+    "os_family": "Linux/Unix",
+    "ttl_signature": 64,
+    "os_confidence": 0.7,
+    "service_banners": {},
+    "detected_services": {},
+    "web_servers": [],
+    "database_servers": [],
+    "iot_protocols": [],
+    "device_type": "unknown",
+    "device_category": "unknown",
+    "confidence": 0.0,
+    "identifying_features": [],
+    "manufacturer": "unknown",
+    "mac_address": "unknown",
+    "oui": "unknown",
+    "vendor_info": {},
+    "analysis_complete": true,
+    "last_seen": "2025-09-20T01:21:09.657355",
+    "os_info": {},
+    "scan_method": "nmap",
+    "nmap_data": {
+      "scan_type": "TCP connect scan with OS and service detection"
+    }
+  },
+  "192.168.1.54": {
+    "first_seen": "2025-09-23T00:16:50.669902",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:46:36.707904",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:58:48.409345",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T02:05:13.094013",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:21:28.435435",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:51:36.780561",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:57:50.318019",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.375180",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.891832",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.242755",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.204085",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.54",
+    "status": "active",
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T00:16:50.669902",
+    "scan_id": "discovery_demo_20250923_001650",
+    "analysis_timeout": true,
+    "last_seen": "2025-09-23T00:18:38.204071",
+    "scan_type": "detailed",
+    "analysis_phase": "complete",
+    "open_ports": [],
+    "services": {},
+    "os_info": {},
+    "scan_method": "nmap",
+    "nmap_data": {
+      "scan_type": "TCP connect scan with OS and service detection"
+    },
+    "hostname": null,
+    "fqdn": "central-ai.station",
+    "hostname_resolution_time": "2025-09-20T01:57:50.268578",
+    "os_type": "Linux/Unix-like",
+    "os_family": null,
+    "ttl_signature": 64,
+    "os_confidence": 0.7,
+    "service_banners": {
+      "22": "SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.7"
+    },
+    "detected_services": {},
+    "web_servers": [],
+    "database_servers": [],
+    "iot_protocols": [],
+    "device_type": null,
+    "device_category": "computer",
+    "confidence": 0.2,
+    "identifying_features": [],
+    "manufacturer": "Nvidia Corporation",
+    "mac_address": "00:04:4b:ea:f5:75",
+    "oui": "00044B",
+    "vendor_info": {},
+    "analysis_complete": true,
+    "mdns_services": [],
+    "snmp_info": {}
+  },
+  "192.168.1.56": {
+    "first_seen": "2025-09-14T22:56:07.899412",
+    "discovery_count": 2,
+    "status_history": [
+      {
+        "timestamp": "2025-09-14T22:56:07.899663",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-14T23:34:12.933759",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.56",
+    "status": "active",
+    "discovery_method": "ping",
+    "timestamp": "2025-09-14T23:33:12.874171",
+    "scan_id": "scan_20250914_232545",
+    "analysis_timeout": true,
+    "last_seen": "2025-09-14T23:34:12.933749"
+  },
+  "192.168.1.55": {
+    "first_seen": "2025-09-23T00:16:50.669965",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:46:42.682541",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:58:54.346281",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T02:05:18.994100",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:21:34.425964",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:51:42.619016",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:57:56.113547",
+        "status": "active",
+        "open_ports": [
+          22
+        ],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.454072",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.952313",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.290572",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.257460",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.55",
+    "status": "active",
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T00:16:50.669965",
+    "scan_id": "discovery_demo_20250923_001650",
+    "scan_type": "detailed",
+    "analysis_phase": "complete",
+    "open_ports": [],
+    "services": {},
+    "os_info": {},
+    "scan_method": "nmap",
+    "nmap_data": {
+      "scan_type": "TCP connect scan with OS and service detection"
+    },
+    "hostname": null,
+    "fqdn": "central-ai.station",
+    "hostname_resolution_time": "2025-09-20T01:57:56.075046",
+    "os_type": "Linux/Unix-like",
+    "os_family": null,
+    "ttl_signature": 64,
+    "os_confidence": 0.7,
+    "service_banners": {
+      "22": "SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.7"
+    },
+    "detected_services": {},
+    "web_servers": [],
+    "database_servers": [],
+    "iot_protocols": [],
+    "device_type": null,
+    "device_category": "computer",
+    "confidence": 0.2,
+    "identifying_features": [],
+    "manufacturer": "Unknown Manufacturer",
+    "mac_address": "28:d0:ea:88:ba:94",
+    "oui": "28D0EA",
+    "vendor_info": {},
+    "analysis_complete": true,
+    "last_seen": "2025-09-23T00:18:38.257443",
+    "mdns_services": [],
+    "snmp_info": {}
+  },
+  "192.168.1.5": {
+    "first_seen": "2025-09-23T00:16:50.670000",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:39:28.710633",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:46:30.906702",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:58:42.367007",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T02:05:07.248786",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:21:22.511402",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.496481",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.981200",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.311395",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.278536",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.5",
+    "status": "active",
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T00:16:50.670000",
+    "scan_id": "discovery_demo_20250923_001650",
+    "scan_type": "detailed",
+    "analysis_phase": "complete",
+    "open_ports": [],
+    "services": {},
+    "os_info": {},
+    "scan_method": "nmap",
+    "nmap_data": {},
+    "hostname": null,
+    "fqdn": "unknown",
+    "hostname_resolution_time": "2025-09-20T01:21:17.432217",
+    "os_type": "unknown",
+    "os_family": null,
+    "ttl_signature": null,
+    "os_confidence": 0.0,
+    "service_banners": {},
+    "detected_services": {},
+    "web_servers": [],
+    "database_servers": [],
+    "iot_protocols": [],
+    "device_type": null,
+    "device_category": "unknown",
+    "confidence": 0.0,
+    "identifying_features": [],
+    "manufacturer": null,
+    "mac_address": "40:b4:cd:f2:88:70",
+    "oui": "40B4CD",
+    "vendor_info": {},
+    "analysis_complete": true,
+    "last_seen": "2025-09-23T00:18:38.278524",
+    "mdns_services": [],
+    "snmp_info": {}
+  },
+  "192.168.1.9": {
+    "first_seen": "2025-09-23T00:16:50.669947",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-19T01:39:52.348055",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:47:01.168046",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T01:59:06.160722",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-19T02:05:37.297267",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-20T01:21:49.076133",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": true
+      },
+      {
+        "timestamp": "2025-09-22T02:25:44.434224",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.937081",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.279946",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.245340",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.9",
+    "status": "active",
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T00:16:50.669947",
+    "scan_id": "discovery_demo_20250923_001650",
+    "scan_type": "detailed",
+    "analysis_phase": "complete",
+    "open_ports": [],
+    "services": {},
+    "os_info": {},
+    "scan_method": "nmap",
+    "nmap_data": {},
+    "hostname": null,
+    "fqdn": "unknown",
+    "hostname_resolution_time": "2025-09-20T01:21:48.012607",
+    "os_type": "unknown",
+    "os_family": null,
+    "ttl_signature": null,
+    "os_confidence": 0.0,
+    "service_banners": {},
+    "detected_services": {},
+    "web_servers": [],
+    "database_servers": [],
+    "iot_protocols": [],
+    "device_type": null,
+    "device_category": "unknown",
+    "confidence": 0.0,
+    "identifying_features": [],
+    "manufacturer": null,
+    "mac_address": "46:f6:38:e7:f4:ad",
+    "oui": "unknown",
+    "vendor_info": {},
+    "analysis_complete": true,
+    "last_seen": "2025-09-23T00:18:38.245328",
+    "mdns_services": [],
+    "snmp_info": {}
+  },
+  "192.168.1.3": {
+    "first_seen": "2025-09-23T00:16:50.670016",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-22T02:25:44.530714",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T02:52:47.994767",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-22T18:17:24.322588",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T00:18:38.289271",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.3",
+    "status": "active",
+    "hostname": null,
+    "mac_address": "de:88:d3:5f:52:e1",
+    "manufacturer": null,
+    "device_type": null,
+    "os_family": null,
+    "open_ports": [],
+    "services": {},
+    "mdns_services": [],
+    "snmp_info": {},
+    "confidence": 0.0,
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T00:16:50.670016",
+    "scan_id": "discovery_demo_20250923_001650",
+    "last_seen": "2025-09-23T00:18:38.289248"
+  }
+}

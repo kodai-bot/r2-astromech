@@ -1,0 +1,309 @@
+{
+  "dataset_info": {
+    "generated_at": "2025-09-19T00:02:11.268620",
+    "format_version": "1.0",
+    "total_records": 6,
+    "ai_enhanced_records": 6,
+    "anonymized": true,
+    "source": "R2-D2 Astromech with TinyLLM",
+    "ai_model": "weiser/82M-0.4"
+  },
+  "records": [
+    {
+      "record_type": "device_classification",
+      "device_id": "device_6730",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.75,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:02:00.540775",
+        "source_timestamp": "2025-09-14T23:30:12.482183",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "Answer: Network device with hostname 'unknown' and no open ports detected.\nQuestion: Network device with hostname 'unknown' and no",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.983,
+          40.735800000000005
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_9366",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 5,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.75,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:02:02.742243",
+        "source_timestamp": "2025-09-15T00:38:54.387611",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "Answer: Network device with hostname 'unknown' and no open ports detected.\nQuestion: Network device with hostname 'unknown' and no",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -74.0194,
+          40.699400000000004
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_8874",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.75,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:02:04.939811",
+        "source_timestamp": "2025-09-14T23:31:12.686887",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "Answer: \"On the network, the hostname is unknown. It is not detected by the hostname. It is not detected by the host",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9686,
+          40.7502
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_6562",
+      "features": {
+        "has_hostname": true,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.75,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:02:06.993715",
+        "source_timestamp": "2025-09-14T23:32:12.774914",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "Answer: No. It's a hard, hard, and fast network.\nQuestion: How do I get the network to work?\nAnswer",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [],
+          "recommendations": []
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9998,
+          40.719
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_8993",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.75,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:02:09.274734",
+        "source_timestamp": "2025-09-14T23:32:12.831400",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "Answer: Network device with hostname 'unknown' and no open ports detected.\nQuestion: Network device with hostname 'unknown' and no",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9567,
+          40.762100000000004
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_8747",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.75,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:02:11.268560",
+        "source_timestamp": "2025-09-14T23:33:12.874171",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "Answer: No. Network device with hostname 'unknown' and no open ports detected.\nQuestion: Network device with hostname 'unknown'",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9813,
+          40.737500000000004
+        ]
+      }
+    }
+  ]
+}

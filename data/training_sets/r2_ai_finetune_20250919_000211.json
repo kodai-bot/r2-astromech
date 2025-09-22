@@ -1,0 +1,48 @@
+{
+  "task_type": "ai_enhanced_device_classification",
+  "created_at": "2025-09-19T00:02:11.318675",
+  "total_examples": 6,
+  "ai_enhanced_count": 6,
+  "examples": [
+    {
+      "input": "Device with AI: Answer: Network device with hostname 'unknown' and.",
+      "output": "unknown",
+      "confidence": 0.75,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: Answer: Network device with hostname 'unknown' and.",
+      "output": "unknown",
+      "confidence": 0.75,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: Answer: \"On the network, the hostname is unknown. .",
+      "output": "unknown",
+      "confidence": 0.75,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with has hostname, AI: Answer: No. It's a hard, hard, and fast network.\nQ.",
+      "output": "unknown",
+      "confidence": 0.75,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: Answer: Network device with hostname 'unknown' and.",
+      "output": "unknown",
+      "confidence": 0.75,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: Answer: No. Network device with hostname 'unknown'.",
+      "output": "unknown",
+      "confidence": 0.75,
+      "ai_enhanced": true
+    }
+  ],
+  "metadata": {
+    "ai_model": "weiser/82M-0.4",
+    "source": "R2-D2 Network Discovery + TinyLLM"
+  }
+}

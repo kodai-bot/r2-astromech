@@ -3,30 +3,54 @@
 
 # Model configurations
 models:
-  phi-3:
-    # Model path - can be local path or HuggingFace model ID
-    model_path: "microsoft/Phi-3-mini-4k-instruct"
+  # phi-3: DISABLED - Too large for resource-constrained devices
+  # Uncomment and configure if you have sufficient memory
+  # phi-3:
+  #   model_path: "microsoft/Phi-3-mini-4k-instruct"
+  #   device: "auto"
+  #   max_length: 512
+  #   temperature: 0.7
+  #   do_sample: true
+  #   top_p: 0.9
+  #   top_k: 50
+  #   personality_mode: "helpful"
+  #   response_style: "concise"
+  #   cache_size: 1000
+  #   enable_memory: true
+
+  tinyllm:
+    # TinyLLM model for IoT sensor data analysis
+    # Using weiser/82M-0.4 - a lightweight 82M parameter model optimized for resource-constrained devices
+    model_path: "weiser/82M-0.4"
     
-    # Device configuration - auto, cuda, or cpu
-    device: "auto"
+    # Device configuration - optimized for efficiency
+    device: "cpu"  # Force CPU to avoid GPU memory issues
     
-    # Generation parameters
-    max_length: 512
-    temperature: 0.7
+    # Generation parameters - optimized for IoT analysis
+    max_length: 128  # Reduced for efficiency
+    temperature: 0.6
     do_sample: true
-    top_p: 0.9
-    top_k: 50
+    top_p: 0.8
+    top_k: 40
     
-    # R2-specific settings
-    personality_mode: "helpful"  # helpful, cheeky, curious, cautious
-    response_style: "concise"    # concise, detailed, playful
+    # IoT-specific settings
+    iot_mode: true
+    sensor_data_context: true
     
-    # Memory and caching
-    cache_size: 1000
-    enable_memory: true
+    # Specialization
+    specialization: "iot_sensor_analysis"
+    supported_protocols: ["mqtt", "coap", "modbus", "bacnet", "knx", "zigbee", "zwave"]
+    
+    # Memory optimization
+    enable_quantization: true
+    low_memory_mode: true
+    
+    # Model-specific optimizations for 82M model
+    trust_remote_code: true
+    low_cpu_mem_usage: true
 
 # Default model to load on startup
-default_model: "phi-3"
+default_model: "tinyllm"
 
 # Auto-load model on startup
 auto_load: true

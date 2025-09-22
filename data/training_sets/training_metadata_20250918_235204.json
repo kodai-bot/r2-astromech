@@ -1,0 +1,34 @@
+{
+  "generation_info": {
+    "generated_at": "2025-09-18T23:52:04.738615",
+    "source_devices": 6,
+    "source_networks": 4,
+    "total_training_records": 10
+  },
+  "files_created": [
+    {
+      "path": "data/training_sets/r2_training_data_20250918_235204.json",
+      "type": "json",
+      "description": "Complete training dataset"
+    },
+    {
+      "path": "data/training_sets/r2_spatial_data_20250918_235204.geojson",
+      "type": "geojson",
+      "description": "Spatial training data"
+    },
+    {
+      "path": "data/training_sets/r2_finetune_device_classification_20250918_235204.json",
+      "type": "json",
+      "description": "Fine-tuning ready dataset"
+    }
+  ],
+  "statistics": {
+    "device_types": {
+      "unknown": 6
+    },
+    "record_types": {
+      "device_classification": 6,
+      "network_topology_analysis": 4
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "task_type": "device_classification",
+  "created_at": "2025-09-18T23:52:04.736295",
+  "total_examples": 6,
+  "training_examples": [
+    {
+      "input": "Device appears consistently in scans.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724180",
+        "source_timestamp": "2025-09-14T23:30:12.482183",
+        "anonymized": true
+      }
+    },
+    {
+      "input": "Device appears consistently in scans.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724273",
+        "source_timestamp": "2025-09-15T00:38:54.387611",
+        "anonymized": true
+      }
+    },
+    {
+      "input": "Device appears consistently in scans.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724294",
+        "source_timestamp": "2025-09-14T23:31:12.686887",
+        "anonymized": true
+      }
+    },
+    {
+      "input": "Device has a configured hostname. Device appears consistently in scans.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724307",
+        "source_timestamp": "2025-09-14T23:32:12.774914",
+        "anonymized": true
+      }
+    }
+  ],
+  "validation_examples": [
+    {
+      "input": "Device appears consistently in scans.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724319",
+        "source_timestamp": "2025-09-14T23:32:12.831400",
+        "anonymized": true
+      }
+    },
+    {
+      "input": "Device appears consistently in scans.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724329",
+        "source_timestamp": "2025-09-14T23:33:12.874171",
+        "anonymized": true
+      }
+    }
+  ],
+  "metadata": {
+    "format": "text_classification",
+    "target_classes": [
+      "unknown"
+    ],
+    "source": "R2-D2 Network Discovery"
+  }
+}

@@ -67,14 +67,17 @@ class ModularAudioEngine(IAudioEngine):
         
         # Scanner vocabulary mapping
         self.scanner_vocabulary = {
-            'scan_start': 'q a',
-            'device_found': 'z',
-            'scan_complete': 'c1',
-            'port_scan_start': 'a s1',
-            'port_found': 'z s1',
-            'scan_error': 'c g1',
-            'startup': 'v y',
-            'shutdown': 'q q v',
+            'scan_start': 'q a',           # Network scan starting
+            'device_found': 'z',           # Device discovered
+            'scan_complete': 'c1',         # Scan completed successfully
+            'port_scan_start': 'a s1',     # Port scan starting
+            'port_found': 'z s1',          # Open port found
+            'scan_error': 'c g1',          # Scan error occurred
+            'startup': 'v y',              # System startup
+            'shutdown': 'v q q',           # System shutdown
+            'progress': 'a',               # Progress indicator (short beep)
+            'analyzing': 's1 o',           # Device analysis in progress
+            'success': 'c c1',             # Operation successful
         }
         
         # Statistics
@@ -105,6 +108,8 @@ class ModularAudioEngine(IAudioEngine):
             await self.event_bus.subscribe(R2Events.NETWORK_SCAN_COMPLETED, self._on_scan_completed)
             await self.event_bus.subscribe(R2Events.NETWORK_SCAN_ERROR, self._on_scan_error)
             await self.event_bus.subscribe(R2Events.DEVICE_ANALYZED, self._on_device_analyzed)
+            await self.event_bus.subscribe(R2Events.SYSTEM_STARTUP, self._on_system_startup)
+            await self.event_bus.subscribe(R2Events.SYSTEM_SHUTDOWN, self._on_system_shutdown)
             
             self.is_initialized = True
             self.logger.info("Audio engine initialized successfully")
@@ -453,21 +458,57 @@ class ModularAudioEngine(IAudioEngine):
     async def _on_scan_started(self, event) -> None:
         """Handle network scan started event"""
         await self.play_sound('scan_start')
+        # Log scan start details
+        data = event.data
+        scan_type = data.get('scan_type', 'unknown')
+        target = data.get('target', 'unknown')
+        self.logger.info(f"🎵 R2 chirped: Starting {scan_type} scan on {target}")
     
     async def _on_device_discovered(self, event) -> None:
         """Handle device discovered event"""
         await self.play_sound('device_found')
+        # Log the discovery for user feedback
+        data = event.data
+        ip = data.get('ip', 'unknown')
+        method = data.get('discovery_method', 'unknown')
+        self.logger.info(f"🎵 R2 chirped: Device found at {ip} via {method}")
     
     async def _on_scan_completed(self, event) -> None:
         """Handle network scan completed event"""
         await self.play_sound('scan_complete')
+        # Log completion with statistics
+        data = event.data
+        devices_found = data.get('devices_found', 0)
+        scan_type = data.get('scan_type', 'unknown')
+        self.logger.info(f"🎵 R2 chirped: {scan_type} scan complete - {devices_found} devices found")
     
     async def _on_scan_error(self, event) -> None:
         """Handle network scan error event"""
         await self.play_sound('scan_error')
+        # Log error details
+        data = event.data
+        error = data.get('error', 'unknown error')
+        self.logger.info(f"🎵 R2 chirped: Scan error - {error}")
     
     async def _on_device_analyzed(self, event) -> None:
         """Handle device analyzed event"""
         data = event.data
-        if data.get('analysis_type') == 'port_discovery':
+        analysis_type = data.get('analysis_type', 'unknown')
+        
+        if analysis_type == 'port_discovery':
             await self.play_sound('port_found')
+            ports = data.get('open_ports', [])
+            ip = data.get('ip', 'unknown')
+            self.logger.info(f"🎵 R2 chirped: Open ports found on {ip} - {ports}")
+        else:
+            await self.play_sound('analyzing')
+            self.logger.info(f"🎵 R2 chirped: Analyzing device - {analysis_type}")
+    
+    async def _on_system_startup(self, event) -> None:
+        """Handle system startup event"""
+        # Startup sound is already played in start() method
+        self.logger.info("System startup event received")
+    
+    async def _on_system_shutdown(self, event) -> None:
+        """Handle system shutdown event"""
+        await self.play_sound('shutdown')

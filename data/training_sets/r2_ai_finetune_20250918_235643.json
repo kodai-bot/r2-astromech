@@ -1,0 +1,48 @@
+{
+  "task_type": "ai_enhanced_device_classification",
+  "created_at": "2025-09-18T23:56:43.706464",
+  "total_examples": 6,
+  "ai_enhanced_count": 6,
+  "examples": [
+    {
+      "input": "Device with AI: [].\n|US6416093 *||Jul 8, 2005||Feb 6, 2007||Citec,.",
+      "output": "unknown",
+      "confidence": 0.7,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: []. Type: []. Type: []. Type: []. Type: []. Type: .",
+      "output": "unknown",
+      "confidence": 0.7,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: [].\n- Type: [].\n- Type: [].\n- Type: [].\n- Type: [].",
+      "output": "unknown",
+      "confidence": 0.7,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with has hostname, AI: port-hostname: port-hostname: port-hostname: port-.",
+      "output": "unknown",
+      "confidence": 0.7,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: [].\nThis article describes the possible uses for a.",
+      "output": "unknown",
+      "confidence": 0.7,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: [].\nTo use this script, you need to set the server.",
+      "output": "unknown",
+      "confidence": 0.7,
+      "ai_enhanced": true
+    }
+  ],
+  "metadata": {
+    "ai_model": "weiser/82M-0.4",
+    "source": "R2-D2 Network Discovery + TinyLLM"
+  }
+}

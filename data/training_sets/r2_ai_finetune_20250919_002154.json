@@ -1,0 +1,48 @@
+{
+  "task_type": "ai_enhanced_device_classification",
+  "created_at": "2025-09-19T00:21:54.553625",
+  "total_examples": 6,
+  "ai_enhanced_count": 6,
+  "examples": [
+    {
+      "input": "Device with AI: - Type: 'unknown' no ports.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - Type: 'unknown' no ports.",
+      "output": "unknown",
+      "confidence": 0.4,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - Type: 'unknown' no ports.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with has hostname, AI: : 'dylan-hpelitedesk.",
+      "output": "printer",
+      "confidence": 0.7999999999999999,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - Type: 'unknown' no ports.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    },
+    {
+      "input": "Device with AI: - Type: 'unknown' no ports.",
+      "output": "unknown",
+      "confidence": 0.5,
+      "ai_enhanced": true
+    }
+  ],
+  "metadata": {
+    "ai_model": "weiser/82M-0.4",
+    "source": "R2-D2 Network Discovery + TinyLLM"
+  }
+}

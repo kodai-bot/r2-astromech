@@ -1,10 +1,19 @@
-# R2 Astromech Unified Configuration
-# This file contains all configuration for the modular R2 system
+# Industrial Automaton R2 Astromech Configuration
+# 
+# R2-series Network Discovery and Analysis System
+# Manufactured by: Industrial Automaton, Rordis City, Nubia
+# Compatible with: Intellex IV Computer Core and later
+# Model: R2-NetRecon Advanced Discovery Unit
+# 
+# "Modularity, Reliability, Intelligence" - Since 32 BBY
 
 # System configuration
 system:
-  name: "R2-D2 Astromech Unit"
+  name: "Industrial Automaton R2-D2 NetRecon Unit"
+  manufacturer: "Industrial Automaton, Rordis City, Nubia"
+  model: "R2-NetRecon Advanced Discovery Astromech"
   version: "2.0.0"
+  intellex_core: "IV"
   environment: "development"
   debug: true
   log_level: "INFO"
@@ -34,6 +43,25 @@ modules:
     default_network: "192.168.1.0/24"
     port_scan_timeout: 3
     ping_timeout: 1
+    debug_mode: false
+    # Enhanced discovery settings
+    enable_arp_discovery: true
+    arp_timeout: 10.0
+    max_concurrent_arps: 50
+    include_active_arp_scan: false  # Only ARP table for now
+    # mDNS discovery settings
+    enable_mdns_discovery: true
+    mdns_timeout: 15.0
+    mdns_scan_duration: 8  # seconds to listen for mDNS responses
+    # Discovery Engine settings
+    enable_discovery_engine: true
+    discovery_mode: "simple"  # simple, comprehensive, deep
+    discovery_timeout: 30.0
+    max_concurrent_discovery: 50
+    tool_preferences:
+      discovery_tool: "nmap"  # Use nmap instead of masscan for better compatibility
+      port_scan_tool: "nmap"
+      fallback_to_basic: true
     common_ports: [22, 23, 53, 80, 135, 139, 443, 445, 993, 995, 1723, 3389, 5900, 8080]
     
   personality:
@@ -97,12 +125,14 @@ security:
 environments:
   development:
     system:
-      debug: true
+      debug: false  # Disable debug for cleaner output
     logging:
-      level: "DEBUG"
+      level: "INFO"  # Less verbose logging
     modules:
       ai:
         auto_load: false  # Don't auto-load AI in dev for faster startup
+      discovery:
+        debug_mode: false  # Disable debug prints in discovery
       personality:
         volume: 0.5  # Quieter in development
         

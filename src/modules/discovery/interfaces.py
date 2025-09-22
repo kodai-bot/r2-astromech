@@ -87,6 +87,24 @@ class INetworkScanner(IModule):
             bool: True if scan stopped successfully
         """
         pass
+    
+    async def discover_available_networks(self) -> List[Dict[str, Any]]:
+        """
+        Discover available networks (WiFi, etc.).
+        
+        Returns:
+            List[Dict[str, Any]]: List of available networks with details
+        """
+        pass
+    
+    async def get_current_network(self) -> Dict[str, Any]:
+        """
+        Get information about the current network connection.
+        
+        Returns:
+            Dict[str, Any]: Current network information
+        """
+        pass
 
 
 class IProtocolDetector(IModule):

@@ -1,0 +1,309 @@
+{
+  "dataset_info": {
+    "generated_at": "2025-09-19T00:05:26.691387",
+    "format_version": "1.0",
+    "total_records": 6,
+    "ai_enhanced_records": 6,
+    "anonymized": true,
+    "source": "R2-D2 Astromech with TinyLLM",
+    "ai_model": "weiser/82M-0.4"
+  },
+  "records": [
+    {
+      "record_type": "device_classification",
+      "device_id": "device_6459",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:05:22.625924",
+        "source_timestamp": "2025-09-14T23:30:12.482183",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": ": 'unknown'\n- Type: 'unknown",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -74.0101,
+          40.7087
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_3100",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 5,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.4,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:05:23.480284",
+        "source_timestamp": "2025-09-15T00:38:54.387611",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "- If you are using a USB cable,",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -74.046,
+          40.6728
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_2724",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:05:24.262256",
+        "source_timestamp": "2025-09-14T23:31:12.686887",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "- Category: Uncategorized\n- View",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9836,
+          40.7352
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_6636",
+      "features": {
+        "has_hostname": true,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:05:25.074398",
+        "source_timestamp": "2025-09-14T23:32:12.774914",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": ":'s' port:'s' port",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [],
+          "recommendations": []
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9924,
+          40.7264
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_5409",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:05:25.884173",
+        "source_timestamp": "2025-09-14T23:32:12.831400",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "- If you are using a USB cable,",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -74.0151,
+          40.703700000000005
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_9282",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "has_telnet": false,
+        "has_iot_ports": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-19T00:05:26.691353",
+        "source_timestamp": "2025-09-14T23:33:12.874171",
+        "anonymized": true,
+        "ai_enhanced": true
+      },
+      "ai_features": {
+        "ai_reasoning": "- Type: 'unknown' no ports",
+        "security_assessment": {
+          "risk_level": "low",
+          "vulnerabilities": [
+            "Device unidentified"
+          ],
+          "recommendations": [
+            "Investigate device"
+          ]
+        },
+        "recommendations": [
+          "Investigate device",
+          "Monitor traffic",
+          "Apply security practices"
+        ]
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -74.0278,
+          40.691
+        ]
+      }
+    }
+  ]
+}

@@ -180,13 +180,20 @@ class TextOutputModule(IModule):
     async def _on_scan_started(self, event) -> None:
         """Handle network scan started event"""
         data = event.data
-        scan_id = data.get('scan_id', 'unknown')
-        target_network = data.get('target_network', 'unknown')
+        scan_type = data.get('scan_type', 'device_scan')
         
-        self._display_message(f"🔍 R2-D2 Beginning Network Discovery Mission", "scan")
-        self._display_message(f"📡 Target Network: {target_network}", "scan")
-        self._display_message(f"🆔 Scan ID: {scan_id}", "scan")
-        self._display_message("=" * 60, "scan")
+        if scan_type == 'network_discovery':
+            self._display_message(f"🔍 R2-D2 Beginning Network Discovery", "scan")
+            self._display_message(f"📡 Scanning for available networks...", "scan")
+            self._display_message("=" * 60, "scan")
+        else:
+            scan_id = data.get('scan_id', 'unknown')
+            target_network = data.get('target_network', 'unknown')
+            
+            self._display_message(f"🔍 R2-D2 Beginning Device Discovery Mission", "scan")
+            self._display_message(f"📡 Target Network: {target_network}", "scan")
+            self._display_message(f"🆔 Scan ID: {scan_id}", "scan")
+            self._display_message("=" * 60, "scan")
         
         self.stats['events_processed'] += 1
         self.stats['scans_reported'] += 1
@@ -222,19 +229,51 @@ class TextOutputModule(IModule):
     async def _on_scan_completed(self, event) -> None:
         """Handle network scan completed event"""
         data = event.data
-        scan_id = data.get('scan_id', 'unknown')
-        devices_found = data.get('devices_found', 0)
-        stats = data.get('stats', {})
+        scan_type = data.get('scan_type', 'device_scan')
         
-        self._display_message("=" * 60, "scan")
-        self._display_message(f"🎯 R2-D2 Discovery Mission Complete!", "success")
-        self._display_message(f"📊 Total Devices Discovered: {devices_found}", "success")
-        self._display_message(f"🆔 Scan ID: {scan_id}", "success")
-        
-        if stats:
-            self._display_message(f"📈 Scanner Statistics:", "info")
-            for key, value in stats.items():
-                self._display_message(f"   • {key}: {value}", "info")
+        if scan_type == 'network_discovery':
+            networks_found = data.get('networks_found', 0)
+            networks = data.get('networks', [])
+            
+            self._display_message("=" * 60, "scan")
+            self._display_message(f"🎯 R2-D2 Network Discovery Complete!", "success")
+            self._display_message(f"📊 Networks Found: {networks_found}", "success")
+            
+            if networks:
+                self._display_message(f"\n📡 Available Networks:", "info")
+                for i, network in enumerate(networks, 1):
+                    network_type = network.get('type', 'unknown')
+                    if network_type == 'wifi':
+                        ssid = network.get('ssid', 'Unknown')
+                        signal = network.get('signal_strength', 0)
+                        security = network.get('security', 'Unknown')
+                        status = network.get('status', 'unknown')
+                        
+                        self._display_message(f"  {i}. 📶 WiFi: {ssid}", "device")
+                        self._display_message(f"     Signal: {signal}% | Security: {security} | Status: {status}", "device")
+                    elif network_type == 'ethernet':
+                        ip = network.get('ip_address', 'unknown')
+                        interface = network.get('interface', 'unknown')
+                        status = network.get('status', 'unknown')
+                        
+                        self._display_message(f"  {i}. 🔌 Ethernet: {interface}", "device")
+                        self._display_message(f"     IP: {ip} | Status: {status}", "device")
+                    else:
+                        self._display_message(f"  {i}. ❓ Unknown Network Type: {network_type}", "device")
+        else:
+            scan_id = data.get('scan_id', 'unknown')
+            devices_found = data.get('devices_found', 0)
+            stats = data.get('stats', {})
+            
+            self._display_message("=" * 60, "scan")
+            self._display_message(f"🎯 R2-D2 Device Discovery Mission Complete!", "success")
+            self._display_message(f"📊 Total Devices Discovered: {devices_found}", "success")
+            self._display_message(f"🆔 Scan ID: {scan_id}", "success")
+            
+            if stats:
+                self._display_message(f"📈 Scanner Statistics:", "info")
+                for key, value in stats.items():
+                    self._display_message(f"   • {key}: {value}", "info")
         
         self.stats['events_processed'] += 1
     

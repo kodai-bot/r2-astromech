@@ -1,0 +1,124 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated_by": "R2-D2 Astromech Unit",
+    "created_at": "2025-09-18T23:52:04.733284",
+    "total_features": 6
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9946,
+          40.7242
+        ]
+      },
+      "properties": {
+        "device_id": "device_8614",
+        "device_type": "unknown",
+        "confidence": 0.5,
+        "record_type": "device_classification",
+        "has_hostname": false,
+        "port_count": 0,
+        "is_persistent": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99080000000001,
+          40.728
+        ]
+      },
+      "properties": {
+        "device_id": "device_2652",
+        "device_type": "unknown",
+        "confidence": 0.5,
+        "record_type": "device_classification",
+        "has_hostname": false,
+        "port_count": 0,
+        "is_persistent": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9855,
+          40.7333
+        ]
+      },
+      "properties": {
+        "device_id": "device_0705",
+        "device_type": "unknown",
+        "confidence": 0.5,
+        "record_type": "device_classification",
+        "has_hostname": false,
+        "port_count": 0,
+        "is_persistent": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9905,
+          40.728300000000004
+        ]
+      },
+      "properties": {
+        "device_id": "device_4655",
+        "device_type": "unknown",
+        "confidence": 0.5,
+        "record_type": "device_classification",
+        "has_hostname": true,
+        "port_count": 0,
+        "is_persistent": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.967,
+          40.7518
+        ]
+      },
+      "properties": {
+        "device_id": "device_8890",
+        "device_type": "unknown",
+        "confidence": 0.5,
+        "record_type": "device_classification",
+        "has_hostname": false,
+        "port_count": 0,
+        "is_persistent": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9633,
+          40.755500000000005
+        ]
+      },
+      "properties": {
+        "device_id": "device_3927",
+        "device_type": "unknown",
+        "confidence": 0.5,
+        "record_type": "device_classification",
+        "has_hostname": false,
+        "port_count": 0,
+        "is_persistent": true
+      }
+    }
+  ]
+}

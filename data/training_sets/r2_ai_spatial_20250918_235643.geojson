@@ -1,0 +1,113 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated_by": "R2-D2 with TinyLLM",
+    "created_at": "2025-09-18T23:56:43.684937",
+    "total_features": 6,
+    "ai_enhanced": true
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7534
+        ]
+      },
+      "properties": {
+        "device_id": "device_2906",
+        "device_type": "unknown",
+        "confidence": 0.7,
+        "ai_enhanced": true,
+        "risk_level": "low"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9957,
+          40.7231
+        ]
+      },
+      "properties": {
+        "device_id": "device_9603",
+        "device_type": "unknown",
+        "confidence": 0.7,
+        "ai_enhanced": true,
+        "risk_level": "low"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0162,
+          40.702600000000004
+        ]
+      },
+      "properties": {
+        "device_id": "device_5398",
+        "device_type": "unknown",
+        "confidence": 0.7,
+        "ai_enhanced": true,
+        "risk_level": "low"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0472,
+          40.6716
+        ]
+      },
+      "properties": {
+        "device_id": "device_5088",
+        "device_type": "unknown",
+        "confidence": 0.7,
+        "ai_enhanced": true,
+        "risk_level": "low"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0485,
+          40.670300000000005
+        ]
+      },
+      "properties": {
+        "device_id": "device_8075",
+        "device_type": "unknown",
+        "confidence": 0.7,
+        "ai_enhanced": true,
+        "risk_level": "low"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9688,
+          40.75
+        ]
+      },
+      "properties": {
+        "device_id": "device_2872",
+        "device_type": "unknown",
+        "confidence": 0.7,
+        "ai_enhanced": true,
+        "risk_level": "low"
+      }
+    }
+  ]
+}

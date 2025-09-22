@@ -19,20 +19,25 @@ logger = logging.getLogger(__name__)
 class EventBus(IEventBus):
     """Event bus implementation for inter-module communication"""
     
-    def __init__(self, max_history: int = 1000):
+    def __init__(self, max_history: int = 1000, handler_timeout: float = 5.0):
         """
         Initialize the event bus.
         
         Args:
             max_history: Maximum number of events to keep in history
+            handler_timeout: Timeout for event handlers in seconds
         """
         self._subscribers: Dict[str, List[Callable]] = {}
         self._event_history: deque = deque(maxlen=max_history)
         self._lock = asyncio.Lock()
+        self._handler_timeout = handler_timeout
+        self._shutdown_requested = False
         self._stats = {
             'events_published': 0,
             'events_processed': 0,
-            'subscribers_count': 0
+            'subscribers_count': 0,
+            'handler_timeouts': 0,
+            'handler_errors': 0
         }
     
     async def publish(self, event: Event) -> None:
@@ -42,6 +47,10 @@ class EventBus(IEventBus):
         Args:
             event: Event to publish
         """
+        if self._shutdown_requested:
+            logger.debug(f"Skipping event '{event.name}' - shutdown requested")
+            return
+            
         async with self._lock:
             # Add to history
             self._event_history.append(event)
@@ -51,15 +60,29 @@ class EventBus(IEventBus):
             if event.name in self._subscribers:
                 subscribers = self._subscribers[event.name].copy()
                 
-                # Process subscribers concurrently
+                # Process subscribers concurrently with timeout protection
                 tasks = []
                 for handler in subscribers:
-                    task = asyncio.create_task(self._safe_handler_call(handler, event))
+                    task = asyncio.create_task(
+                        self._safe_handler_call(handler, event)
+                    )
                     tasks.append(task)
                 
                 if tasks:
-                    await asyncio.gather(*tasks, return_exceptions=True)
-                    self._stats['events_processed'] += len(tasks)
+                    try:
+                        # Wait for all handlers with timeout
+                        await asyncio.wait_for(
+                            asyncio.gather(*tasks, return_exceptions=True),
+                            timeout=self._handler_timeout
+                        )
+                        self._stats['events_processed'] += len(tasks)
+                    except asyncio.TimeoutError:
+                        self._stats['handler_timeouts'] += len(tasks)
+                        logger.warning(f"Event '{event.name}' handlers timed out after {self._handler_timeout}s")
+                        # Cancel remaining tasks
+                        for task in tasks:
+                            if not task.done():
+                                task.cancel()
             
             logger.debug(f"Published event '{event.name}' from {event.source}")
     
@@ -71,7 +94,9 @@ class EventBus(IEventBus):
             else:
                 handler(event)
         except Exception as e:
+            self._stats['handler_errors'] += 1
             logger.error(f"Error in event handler for '{event.name}': {e}")
+            # Don't re-raise - let the event bus continue
     
     async def subscribe(self, event_name: str, handler: Callable) -> None:
         """
@@ -133,6 +158,25 @@ class EventBus(IEventBus):
         async with self._lock:
             self._event_history.clear()
             logger.info("Event history cleared")
+    
+    async def shutdown(self) -> None:
+        """Shutdown the event bus gracefully"""
+        logger.info("Shutting down event bus...")
+        self._shutdown_requested = True
+        
+        # Wait a moment for any pending events to complete
+        await asyncio.sleep(0.1)
+        
+        # Clear all subscribers
+        async with self._lock:
+            self._subscribers.clear()
+            self._event_history.clear()
+        
+        logger.info("Event bus shutdown complete")
+    
+    def is_shutdown_requested(self) -> bool:
+        """Check if shutdown has been requested"""
+        return self._shutdown_requested
 
 
 # Predefined event types for common R2 operations
@@ -156,6 +200,10 @@ class R2Events:
     NETWORK_SCAN_ERROR = "network.scan_error"
     DEVICE_DISCOVERED = "network.device_discovered"
     DEVICE_ANALYZED = "network.device_analyzed"
+    PING_PROGRESS = "ping_progress"
+    PORT_SCAN_STARTED = "port_scan_started"
+    PORT_SCAN_COMPLETED = "port_scan_completed"
+    PORT_FOUND = "port_found"
     
     # AI events
     AI_MODEL_LOADED = "ai.model_loaded"

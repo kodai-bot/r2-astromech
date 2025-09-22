@@ -1,0 +1,263 @@
+{
+  "dataset_info": {
+    "generated_at": "2025-09-18T23:52:04.724387",
+    "format_version": "1.0",
+    "total_records": 10,
+    "anonymized": true,
+    "source": "R2-D2 Astromech Network Discovery"
+  },
+  "records": [
+    {
+      "record_type": "device_classification",
+      "device_id": "device_8614",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724180",
+        "source_timestamp": "2025-09-14T23:30:12.482183",
+        "anonymized": true
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9946,
+          40.7242
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_2652",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "discovery_count": 5,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724273",
+        "source_timestamp": "2025-09-15T00:38:54.387611",
+        "anonymized": true
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.99080000000001,
+          40.728
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_0705",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724294",
+        "source_timestamp": "2025-09-14T23:31:12.686887",
+        "anonymized": true
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9855,
+          40.7333
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_4655",
+      "features": {
+        "has_hostname": true,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724307",
+        "source_timestamp": "2025-09-14T23:32:12.774914",
+        "anonymized": true
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9905,
+          40.728300000000004
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_8890",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724319",
+        "source_timestamp": "2025-09-14T23:32:12.831400",
+        "anonymized": true
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.967,
+          40.7518
+        ]
+      }
+    },
+    {
+      "record_type": "device_classification",
+      "device_id": "device_3927",
+      "features": {
+        "has_hostname": false,
+        "has_mac": false,
+        "port_count": 0,
+        "has_web_ports": false,
+        "has_ssh": false,
+        "discovery_count": 2,
+        "is_persistent": true
+      },
+      "device_type": "unknown",
+      "confidence": 0.5,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724329",
+        "source_timestamp": "2025-09-14T23:33:12.874171",
+        "anonymized": true
+      },
+      "location_features": {
+        "type": "inferred",
+        "source": "network_subnet",
+        "accuracy": "low",
+        "coordinates": [
+          -73.9633,
+          40.755500000000005
+        ]
+      }
+    },
+    {
+      "record_type": "network_topology_analysis",
+      "network_id": "network_0686",
+      "network_range": "anonymized_network/24",
+      "topology_features": {
+        "total_devices": 6,
+        "has_gateway": true,
+        "device_diversity": 1,
+        "manufacturer_diversity": 2
+      },
+      "device_count": 6,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724352",
+        "scan_timestamp": "2025-09-14T23:13:55.319278",
+        "anonymized": true
+      }
+    },
+    {
+      "record_type": "network_topology_analysis",
+      "network_id": "network_4989",
+      "network_range": "anonymized_network/24",
+      "topology_features": {
+        "total_devices": 6,
+        "has_gateway": true,
+        "device_diversity": 2,
+        "manufacturer_diversity": 3
+      },
+      "device_count": 6,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724363",
+        "scan_timestamp": "2025-09-14T23:34:13.068575",
+        "anonymized": true
+      }
+    },
+    {
+      "record_type": "network_topology_analysis",
+      "network_id": "network_0265",
+      "network_range": "anonymized_network/24",
+      "topology_features": {
+        "total_devices": 1,
+        "has_gateway": true,
+        "device_diversity": 1,
+        "manufacturer_diversity": 1
+      },
+      "device_count": 1,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724374",
+        "scan_timestamp": "2025-09-15T00:38:55.498818",
+        "anonymized": true
+      }
+    },
+    {
+      "record_type": "network_topology_analysis",
+      "network_id": "network_4801",
+      "network_range": "anonymized_network/24",
+      "topology_features": {
+        "total_devices": 0,
+        "has_gateway": true,
+        "device_diversity": 0,
+        "manufacturer_diversity": 0
+      },
+      "device_count": 0,
+      "metadata": {
+        "format_version": "1.0",
+        "created_at": "2025-09-18T23:52:04.724380",
+        "scan_timestamp": "2025-09-18T02:31:45.713504",
+        "anonymized": true
+      }
+    }
+  ]
+}

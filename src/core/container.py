@@ -248,6 +248,14 @@ class DIContainer(IServiceRegistry):
             except Exception as e:
                 logger.error(f"Error cleaning up module {module_name}: {e}")
         
+        # Shutdown event bus
+        try:
+            event_bus = await self.get_service(EventBus)
+            await event_bus.shutdown()
+            logger.info("Event bus shutdown complete")
+        except Exception as e:
+            logger.error(f"Error shutting down event bus: {e}")
+        
         logger.info("Module cleanup complete")
         return True
     
