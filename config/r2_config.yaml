@@ -53,6 +53,12 @@ modules:
     enable_mdns_discovery: true
     mdns_timeout: 15.0
     mdns_scan_duration: 8  # seconds to listen for mDNS responses
+    # SSDP/UPnP discovery settings  
+    enable_ssdp_discovery: true
+    ssdp_timeout: 10.0
+    ssdp_scan_timeout: 10  # seconds to wait for SSDP responses
+    ssdp_max_responses: 100
+    ssdp_follow_descriptions: true  # Fetch device description XML
     # Discovery Engine settings
     enable_discovery_engine: true
     discovery_mode: "simple"  # simple, comprehensive, deep

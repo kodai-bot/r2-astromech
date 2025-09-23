@@ -38,6 +38,7 @@ from enum import Enum
 from .interfaces import DiscoveryScanner, DeviceInfo, ScannerConfig
 from .arp_scanner import ARPScanner
 from .mdns_scanner import MDNSScanner
+from .ssdp_scanner import SSDPScanner
 from .port_scanner import EnhancedPortScanner
 from .snmp_scanner import SNMPScanner
 from ..device_database import DeviceDatabase
@@ -136,8 +137,8 @@ class DiscoveryEngine(DiscoveryScanner):
             # self.traffic_scanner = TrafficScanner(self.event_bus, config)  # TODO: Implement
             
             # Phase 3: Active Host Discovery scanners
-            # self.upnp_scanner = UPnPScanner(self.event_bus, config)  # TODO: Implement
-            # self.ssdp_scanner = SSDPScanner(self.event_bus, config)  # TODO: Implement
+            self.ssdp_scanner = SSDPScanner(self.event_bus, config)
+            # self.upnp_scanner = UPnPScanner(self.event_bus, config)  # TODO: Implement (separate from SSDP)
             
             # Phase 4: Service/Protocol Discovery scanners
             self.port_scanner = EnhancedPortScanner(self.event_bus, config)
@@ -1068,10 +1069,33 @@ class DiscoveryEngine(DiscoveryScanner):
             return await self._traditional_discovery_methods(network, scan_id)
     
     async def _upnp_ssdp_discovery(self, network: str, scan_id: str) -> List[str]:
-        """Step 10: UPnP/SSDP Discovery (stub)."""
-        self.logger.debug("UPnP/SSDP discovery - stub implementation")
-        # TODO: Implement UPnP and SSDP multicast discovery
-        return []
+        """Step 10: UPnP/SSDP Discovery."""
+        discovered_hosts = []
+        
+        if hasattr(self, 'ssdp_scanner') and self.ssdp_scanner:
+            try:
+                if await self.ssdp_scanner.check_availability():
+                    self.logger.info("🔍 Performing SSDP/UPnP discovery")
+                    
+                    # Perform SSDP discovery (network parameter not used for multicast)
+                    ssdp_devices = await self.ssdp_scanner.scan(network, scan_id)
+                    
+                    # Extract host IPs from discovered devices
+                    for device in ssdp_devices:
+                        if device.ip and device.ip not in discovered_hosts:
+                            discovered_hosts.append(device.ip)
+                    
+                    self.logger.info(f"✅ SSDP discovery found {len(ssdp_devices)} UPnP devices on {len(discovered_hosts)} hosts")
+                    
+                else:
+                    self.logger.debug("SSDP scanner not available")
+                    
+            except Exception as e:
+                self.logger.warning(f"SSDP discovery failed: {e}")
+        else:
+            self.logger.debug("SSDP scanner not initialized")
+        
+        return discovered_hosts
     
     # Phase 4 Helper Methods (Service Discovery)
     async def _snmp_community_probing(self, hosts: List[str], scan_id: str) -> List[str]:
