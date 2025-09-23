@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-R2-D2 Astromech Unit - Simple Terminal Menu
+R2-A1 Astromech Unit - Simple Terminal Menu
 
 A simplified main entry point with basic terminal menu functionality.
 """
@@ -13,15 +13,15 @@ import subprocess
 sys.path.insert(0, os.path.dirname(__file__))
 
 def show_menu():
-    """Display the R2-D2 command menu."""
+    """Display the R2-A1 command menu."""
     print("\n" + "="*70)
-    print("    INDUSTRIAL AUTOMATON R2-D2 ASTROMECH COMMAND INTERFACE")
+    print("    INDUSTRIAL AUTOMATON R2-A1 ASTROMECH COMMAND INTERFACE")
     print("    Advanced Network Discovery and Analysis System")
     print("    Manufactured by Industrial Automaton, Rordis City, Nubia")
     print("    'Modularity, Reliability, Intelligence' - Since 32 BBY")
     print("="*70)
     
-    print("\n🤖 R2-D2 Astromech Command Menu:")
+    print("\n🤖 R2-A1 Astromech Command Menu:")
     print("   1. 🌐 Environment Scan (Network Discovery)")
     print("   2. 📡 Join Network (Connect to discovered network)")
     print("   3. 📊 System Status")
@@ -31,9 +31,9 @@ def show_menu():
 
 def handle_environment_scan():
     """Handle environment scan by running the scan director."""
-    print("\n🔍 R2-D2 Environment Scan")
+    print("\n🔍 R2-A1 Environment Scan")
     print("=" * 40)
-    print("Launching R2's Network Discovery Scan Director...")
+    print("Launching R2-A1 Network Discovery Scan Director...")
     
     try:
         # Get the path to the scan director file
@@ -45,7 +45,7 @@ def handle_environment_scan():
             print(f"   Expected at: {scan_director_path}")
             return
             
-        print(f"\n🚀 Starting R2-D2 Network Discovery Scan Director...")
+        print(f"\n🚀 Starting R2-A1 Network Discovery Scan Director...")
         print("🎵 Listen for R2's chirps as devices are discovered!")
         print("=" * 60)
         
@@ -67,7 +67,7 @@ def handle_environment_scan():
 
 def handle_join_network():
     """Handle join network operation."""
-    print("\n📡 R2-D2 Network Connection")
+    print("\n📡 R2-A1 Network Connection")
     print("=" * 40)
     print("🚧 Network joining functionality coming soon!")
     print("This will allow R2 to connect to discovered networks and services.")
@@ -81,7 +81,7 @@ def handle_join_network():
 
 def handle_system_status():
     """Handle system status display."""
-    print("\n📊 R2-D2 System Status")
+    print("\n📊 R2-A1 System Status")
     print("=" * 40)
     print("🤖 Status: Operational")
     print("🌍 Environment: Development") 
@@ -98,11 +98,11 @@ def handle_system_status():
 
 def handle_health_check():
     """Handle system health check."""
-    print("\n🔧 R2-D2 Health Check")
+    print("\n🔧 R2-A1 Health Check")
     print("=" * 40)
     print("🔍 Running system diagnostics...")
     print("✅ All systems operational")
-    print("🤖 R2-D2 is functioning within normal parameters")
+    print("🤖 R2-A1 is functioning within normal parameters")
     print("📡 Network discovery demo available")
     print("🔊 Audio systems ready")
     
@@ -124,7 +124,7 @@ def main():
             elif choice == "4":
                 handle_health_check()
             elif choice == "5":
-                print("\n🛑 Shutting down R2-D2 Astromech System...")
+                print("\n🛑 Shutting down R2-A1 Astromech System...")
                 print("👋 Thank you for using Industrial Automaton technology!")
                 break
             else:

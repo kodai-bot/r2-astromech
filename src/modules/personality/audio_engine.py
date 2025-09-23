@@ -78,6 +78,13 @@ class ModularAudioEngine(IAudioEngine):
             'progress': 'a',               # Progress indicator (short beep)
             'analyzing': 's1 o',           # Device analysis in progress
             'success': 'c c1',             # Operation successful
+            # New phase-specific sounds
+            'phase_start': 'o',            # Phase transition sound
+            'discovery_phase': 'q a',      # Device discovery phase
+            'scanning_phase': 'a s1',      # Device scanning phase
+            'ssdp_discovery': 'z o',       # SSDP/UPnP discovery
+            'arp_discovery': 'z',          # ARP discovery
+            'mdns_discovery': 'z s1',      # mDNS discovery
         }
         
         # Statistics

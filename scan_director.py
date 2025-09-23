@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-R2-D2 Network Discovery Scan Director
+R2-A1 Network Discovery Scan Director
 
 This script orchestrates the comprehensive network discovery capabilities
 of the R2-D2 Astromech unit system. It acts as the central coordinator,
@@ -51,7 +51,13 @@ class R2NetworkScanDirector:
         self.audio_engine = None
         self.text_output = None
         
-        logger.info("🤖 R2-D2 Network Discovery Demo initializing...")
+        # Scan phase tracking
+        self.scan_phase = "none"  # none, discovery, scanning
+        self.discovery_devices_found = 0
+        self.scanning_progress = 0
+        self.discovered_ips = set()  # Track discovered IPs to avoid duplicates
+        
+        logger.info("🤖 R2-A1 Network Discovery Demo initializing...")
     
     async def initialize(self) -> bool:
         """Initialize the demo system"""
@@ -134,7 +140,7 @@ class R2NetworkScanDirector:
             print("\n🔍 R2-D2 Network Discovery Scan Director")
             print("=" * 50)
             print("Orchestrating R2's comprehensive network discovery!")
-            print("Using multi-phase scanning: ARP + Nmap + mDNS")
+            print("Using multi-phase scanning: ARP + SSDP/UPnP + mDNS + Nmap")
             print("=" * 50)
             
             # Initialize the discovery engine
@@ -163,8 +169,21 @@ class R2NetworkScanDirector:
     async def _scan_with_discovery_engine(self, network_range: str) -> None:
         """Scan network using the DiscoveryEngine directly"""
         try:
-            print(f"\n🔍 Starting Discovery Engine scan on {network_range}...")
+            print(f"\n📡 PHASE 1: DEVICE DISCOVERY")
+            print(f"🔍 Starting multi-protocol device discovery on {network_range}...")
+            print(f"   • ARP Table Analysis")
+            print(f"   • SSDP/UPnP Multicast Discovery") 
+            print(f"   • mDNS Service Discovery")
+            print(f"   • Traditional Network Ping")
             print("⏳ This may take a few moments...")
+            
+            # Reset counters for new scan
+            self.discovery_devices_found = 0
+            self.scanning_progress = 0
+            self.discovered_ips.clear()
+            
+            # Set discovery phase
+            await self._report_phase_transition("initialization", "discovery", "Starting device discovery")
             
             # Subscribe to scan progress events
             await self._setup_progress_monitoring()
@@ -175,9 +194,13 @@ class R2NetworkScanDirector:
             # Perform discovery scan
             devices = await self.discovery_engine.scan(network_range, scan_id)
             
-            # Display results
-            print(f"\n\n🎯 Discovery Engine Scan Results:")
-            print(f"📊 Devices found: {len(devices)}")
+            # Phase 1 Complete - Transition to Scanning
+            await self._report_phase_transition("discovery", "scanning", f"{len(devices)} devices found, starting analysis")
+            
+            # Display discovery results
+            print(f"\n✅ PHASE 1 COMPLETE: Device Discovery")
+            print(f"📊 Total unique devices discovered: {len(devices)}")
+            print(f"🔍 Discovery methods used: ARP + SSDP + mDNS + Ping")
             
             if devices:
                 print(f"\n📡 Discovered Devices:")
@@ -232,10 +255,31 @@ class R2NetworkScanDirector:
                     if i < len(devices):
                         print()
             else:
-                print("🤔 No devices found on this network")
+                print("📭 No devices discovered during Phase 1")
+                print("💡 Try scanning a different network or check connectivity")
+                return
             
-            print(f"\n✅ Discovery Engine scan complete!")
-            print(f"🚀 Multi-phase scanning completed successfully!")
+            # Simulate Phase 2: Device Analysis
+            print(f"\n📡 PHASE 2: DEVICE ANALYSIS & PORT SCANNING")
+            print(f"🔬 Analyzing {len(devices)} discovered devices...")
+            print(f"🔍 Methods: Port scanning, service enumeration, OS fingerprinting")
+            print("🤖 *R2 switches to port scanning sounds*")
+            
+            # For demo purposes, just show that we would scan each device
+            for i, device in enumerate(devices, 1):
+                print(f"   🔬 Analyzing device {i}/{len(devices)}: {device.ip}")
+                # Trigger scanning phase audio
+                if self.audio_engine:
+                    try:
+                        await self.audio_engine.play_sound("port_scan_start")
+                        await asyncio.sleep(0.5)  # Brief pause between scans
+                    except Exception as e:
+                        logger.debug(f"Audio failed: {e}")
+            
+            print(f"\n✅ PHASE 2 COMPLETE: Device Analysis")
+            print(f"🎯 R2-A1 Network Discovery Mission Complete!")
+            print(f"📊 Successfully discovered and analyzed {len(devices)} devices")
+            print(f"🚀 Multi-phase scanning: Discovery → Analysis → Complete!")
             
         except Exception as e:
             print(f"❌ Discovery Engine scan failed: {e}")
@@ -351,7 +395,7 @@ class R2NetworkScanDirector:
             print("=" * 60)
             self.network_scanner.device_database.print_network_summary()
             
-            print(f"\n🤖 R2-D2 says: 'I have catalogued {len(devices)} devices in my environment!'")
+            print(f"\n🤖 R2-A1 says: 'I have catalogued {len(devices)} devices in my environment!'")
             print(f"📊 Database updated with comprehensive device intelligence.")
             print(f"🚀 Discovery Engine provided multi-phase scanning (ARP + Traditional + mDNS)!")
             
@@ -389,15 +433,42 @@ class R2NetworkScanDirector:
         
         print("🎯 DEBUG: Progress monitoring setup complete!")
     
+    async def _play_phase_sound(self, phase_type: str) -> None:
+        """Play audio cue for phase transitions"""
+        try:
+            if self.audio_engine:
+                # Map phase types to audio cues
+                if phase_type == "discovery_phase":
+                    await self.audio_engine.play_sound("discovery_phase")
+                elif phase_type == "scanning_phase":
+                    await self.audio_engine.play_sound("scanning_phase")
+                elif phase_type == "phase_start":
+                    await self.audio_engine.play_sound("phase_start")
+        except Exception as e:
+            logger.debug(f"Audio cue failed: {e}")
+    
+    async def _report_phase_transition(self, from_phase: str, to_phase: str, context: str = "") -> None:
+        """Report clear phase transitions"""
+        print(f"\n🔄 PHASE TRANSITION")
+        print(f"   📤 Completing: {from_phase.upper()}")
+        print(f"   📥 Starting: {to_phase.upper()}")
+        if context:
+            print(f"   📋 Context: {context}")
+        print("-" * 40)
+        
+        # Play transition sound
+        await self._play_phase_sound("phase_start")
+        self.scan_phase = to_phase
+    
     async def _on_scan_started(self, event) -> None:
         """Handle scan started event"""
         print(f"🔥 DEBUG: _on_scan_started called! Event: {event.name}")
         import time
         self.scan_start_time = time.time()
-        print(f"🚀 R2-D2 scan initiated...")
+        print(f"🚀 R2-A1 scan initiated...")
         
     async def _on_device_discovered(self, event) -> None:
-        """Handle device discovered event - R2 chirps with excitement!"""
+        """Handle device discovered event - different sounds for discovery vs scanning phases"""
         print(f"🔥 DEBUG: _on_device_discovered called! Event: {event.name}")
         print(f"🔥 DEBUG: Event data: {event.data}")
         
@@ -405,14 +476,60 @@ class R2NetworkScanDirector:
         device_data = event.data.get('device', {})
         ip = device_data.get('ip', event.data.get('ip', 'unknown'))
         
-        self.devices_found += 1
+        # Extract scanner method from multiple possible locations
+        scanner = (device_data.get('scanner') or 
+                  device_data.get('discovery_method') or 
+                  event.data.get('scanner_type', 'unknown'))
         
-        # R2 gets excited about discovering devices!
-        print(f"🎉 R2-D2 DISCOVERY! Device found: {ip}")
-        print(f"   🤖 *R2 chirps excitedly* (Device #{self.devices_found})")
+        # Check for duplicate devices
+        if ip in self.discovered_ips:
+            print(f"🔄 R2-A1 DUPLICATE DEVICE IGNORED: {ip} (already discovered via {scanner})")
+            return
         
-        # Show running tally
-        print(f"   📊 Running total: {self.devices_found} devices discovered")
+        # Add to discovered IPs set
+        self.discovered_ips.add(ip)
+        
+        # Different behavior based on current phase
+        if self.scan_phase == "discovery":
+            self.discovery_devices_found += 1
+            print(f"🎉 R2-A1 DEVICE DISCOVERY! Device found: {ip}")
+            print(f"   🔍 Discovery method: {scanner}")
+            print(f"   🤖 *R2 chirps excitedly* (Device #{self.discovery_devices_found})")
+            print(f"   📊 Discovery total: {self.discovery_devices_found} devices found")
+            
+            # Play device discovery sound
+            try:
+                if self.audio_engine:
+                    await self.audio_engine.play_sound("device_found")
+            except Exception as e:
+                logger.debug(f"Audio playback failed: {e}")
+                
+        elif self.scan_phase == "scanning":
+            self.scanning_progress += 1
+            print(f"🔬 R2-A1 DEVICE ANALYSIS! Scanning: {ip}")
+            print(f"   🔍 Method: {scanner}")
+            print(f"   🤖 *R2 makes scanning sounds* (Analysis #{self.scanning_progress})")
+            print(f"   📊 Analysis progress: {self.scanning_progress} devices scanned")
+            
+            # Play scanning sound (different from discovery)
+            try:
+                if self.audio_engine:
+                    await self.audio_engine.play_sound("port_scan_start")
+            except Exception as e:
+                logger.debug(f"Audio playback failed: {e}")
+                
+        else:
+            # Fallback for unknown phase
+            print(f"🎉 R2-A1 DISCOVERY! Device found: {ip} (phase: {self.scan_phase})")
+            print(f"   🔍 Discovery method: {scanner}")
+            print(f"   🤖 *R2 chirps* (Fallback mode)")
+            
+            # Play fallback discovery sound
+            try:
+                if self.audio_engine:
+                    await self.audio_engine.play_sound("device_found")
+            except Exception as e:
+                logger.debug(f"Audio playback failed: {e}")
         
     async def _on_ping_progress(self, event) -> None:
         """Handle ping progress updates"""

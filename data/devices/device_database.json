@@ -1,20 +1,8 @@
 {
   "192.168.1.1": {
-    "first_seen": "2025-09-23T00:16:50.669924",
+    "first_seen": "2025-09-23T01:52:27.666956",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:45:07.129547",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": false
-      },
-      {
-        "timestamp": "2025-09-19T01:57:18.482406",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": false
-      },
       {
         "timestamp": "2025-09-19T02:03:43.712361",
         "status": "active",
@@ -62,15 +50,27 @@
         "status": "active",
         "open_ports": [],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.404201",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.057764",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.1",
     "status": "active",
     "discovery_method": "arp_table",
-    "timestamp": "2025-09-23T00:16:50.669924",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:52:27.666956",
+    "scan_id": "discovery_demo_20250923_015227",
     "analysis_timeout": true,
-    "last_seen": "2025-09-23T00:18:38.228448",
+    "last_seen": "2025-09-23T01:54:15.057751",
     "hostname": null,
     "mac_address": "04:71:53:98:1c:a1",
     "manufacturer": null,
@@ -83,21 +83,9 @@
     "confidence": 0.0
   },
   "192.168.1.6": {
-    "first_seen": "2025-09-23T00:16:50.669827",
+    "first_seen": "2025-09-23T01:52:27.666860",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:46:48.389091",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": true
-      },
-      {
-        "timestamp": "2025-09-19T01:59:00.196811",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": true
-      },
       {
         "timestamp": "2025-09-19T02:05:24.687307",
         "status": "active",
@@ -153,13 +141,29 @@
           41800
         ],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.344530",
+        "status": "active",
+        "open_ports": [
+          41800
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.001533",
+        "status": "active",
+        "open_ports": [
+          41800
+        ],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.6",
     "status": "active",
     "discovery_method": "arp_table+mdns",
-    "timestamp": "2025-09-23T00:16:50.669827",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:52:27.666860",
+    "scan_id": "discovery_demo_20250923_015227",
     "scan_type": "detailed",
     "analysis_phase": "complete",
     "host": "192.168.1.6",
@@ -190,7 +194,7 @@
     "oui": "C863F1",
     "vendor_info": {},
     "analysis_complete": true,
-    "last_seen": "2025-09-23T00:18:38.167898",
+    "last_seen": "2025-09-23T01:54:15.001518",
     "os_info": {},
     "scan_method": "nmap",
     "nmap_data": {
@@ -207,21 +211,9 @@
     "snmp_info": {}
   },
   "192.168.1.24": {
-    "first_seen": "2025-09-23T00:16:50.669981",
+    "first_seen": "2025-09-23T01:52:27.666987",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:46:12.226448",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": false
-      },
-      {
-        "timestamp": "2025-09-19T01:58:23.582322",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": false
-      },
       {
         "timestamp": "2025-09-19T02:04:48.808680",
         "status": "active",
@@ -289,32 +281,54 @@
           0
         ],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.434254",
+        "status": "active",
+        "open_ports": [
+          21,
+          9,
+          445,
+          0
+        ],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.082624",
+        "status": "active",
+        "open_ports": [
+          445,
+          9,
+          21,
+          0
+        ],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.24",
     "status": "active",
     "discovery_method": "arp_table+mdns",
-    "timestamp": "2025-09-23T00:16:50.669981",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:52:27.666987",
+    "scan_id": "discovery_demo_20250923_015227",
     "analysis_timeout": true,
-    "last_seen": "2025-09-23T00:18:38.266150",
+    "last_seen": "2025-09-23T01:54:15.082600",
     "hostname": "Cibo",
     "mac_address": "90:09:d0:60:db:79",
     "manufacturer": null,
     "device_type": null,
     "os_family": null,
     "open_ports": [
-      21,
-      9,
       445,
+      9,
+      21,
       0
     ],
     "services": {},
     "mdns_services": [
       {
         "name": "Cibo",
-        "type": "_ftp._tcp",
-        "port": "21",
+        "type": "_smb._tcp",
+        "port": "445",
         "txt_record": ""
       },
       {
@@ -325,8 +339,8 @@
       },
       {
         "name": "Cibo",
-        "type": "_smb._tcp",
-        "port": "445",
+        "type": "_ftp._tcp",
+        "port": "21",
         "txt_record": ""
       },
       {
@@ -445,25 +459,9 @@
     }
   },
   "192.168.1.54": {
-    "first_seen": "2025-09-23T00:16:50.669902",
+    "first_seen": "2025-09-23T01:52:27.666936",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:46:36.707904",
-        "status": "active",
-        "open_ports": [
-          22
-        ],
-        "analysis_complete": true
-      },
-      {
-        "timestamp": "2025-09-19T01:58:48.409345",
-        "status": "active",
-        "open_ports": [
-          22
-        ],
-        "analysis_complete": true
-      },
       {
         "timestamp": "2025-09-19T02:05:13.094013",
         "status": "active",
@@ -519,15 +517,27 @@
         "status": "active",
         "open_ports": [],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.382976",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.035370",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.54",
     "status": "active",
     "discovery_method": "arp_table",
-    "timestamp": "2025-09-23T00:16:50.669902",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:52:27.666936",
+    "scan_id": "discovery_demo_20250923_015227",
     "analysis_timeout": true,
-    "last_seen": "2025-09-23T00:18:38.204071",
+    "last_seen": "2025-09-23T01:54:15.035358",
     "scan_type": "detailed",
     "analysis_phase": "complete",
     "open_ports": [],
@@ -589,17 +599,9 @@
     "last_seen": "2025-09-14T23:34:12.933749"
   },
   "192.168.1.55": {
-    "first_seen": "2025-09-23T00:16:50.669965",
+    "first_seen": "2025-09-23T01:38:14.853927",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:46:42.682541",
-        "status": "active",
-        "open_ports": [
-          22
-        ],
-        "analysis_complete": true
-      },
       {
         "timestamp": "2025-09-19T01:58:54.346281",
         "status": "active",
@@ -663,13 +665,19 @@
         "status": "active",
         "open_ports": [],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.426607",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.55",
     "status": "active",
     "discovery_method": "arp_table",
-    "timestamp": "2025-09-23T00:16:50.669965",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:38:14.853927",
+    "scan_id": "discovery_demo_20250923_013814",
     "scan_type": "detailed",
     "analysis_phase": "complete",
     "open_ports": [],
@@ -702,20 +710,14 @@
     "oui": "28D0EA",
     "vendor_info": {},
     "analysis_complete": true,
-    "last_seen": "2025-09-23T00:18:38.257443",
+    "last_seen": "2025-09-23T01:40:02.426592",
     "mdns_services": [],
     "snmp_info": {}
   },
   "192.168.1.5": {
-    "first_seen": "2025-09-23T00:16:50.670000",
+    "first_seen": "2025-09-23T01:52:27.667013",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:39:28.710633",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": true
-      },
       {
         "timestamp": "2025-09-19T01:46:30.906702",
         "status": "active",
@@ -763,13 +765,25 @@
         "status": "active",
         "open_ports": [],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.443102",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.102471",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.5",
     "status": "active",
     "discovery_method": "arp_table",
-    "timestamp": "2025-09-23T00:16:50.670000",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:52:27.667013",
+    "scan_id": "discovery_demo_20250923_015227",
     "scan_type": "detailed",
     "analysis_phase": "complete",
     "open_ports": [],
@@ -798,20 +812,14 @@
     "oui": "40B4CD",
     "vendor_info": {},
     "analysis_complete": true,
-    "last_seen": "2025-09-23T00:18:38.278524",
+    "last_seen": "2025-09-23T01:54:15.102447",
     "mdns_services": [],
     "snmp_info": {}
   },
   "192.168.1.9": {
-    "first_seen": "2025-09-23T00:16:50.669947",
+    "first_seen": "2025-09-23T01:52:27.666972",
     "discovery_count": 1,
     "status_history": [
-      {
-        "timestamp": "2025-09-19T01:39:52.348055",
-        "status": "active",
-        "open_ports": [],
-        "analysis_complete": true
-      },
       {
         "timestamp": "2025-09-19T01:47:01.168046",
         "status": "active",
@@ -859,13 +867,25 @@
         "status": "active",
         "open_ports": [],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.416317",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.070993",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.9",
     "status": "active",
     "discovery_method": "arp_table",
-    "timestamp": "2025-09-23T00:16:50.669947",
-    "scan_id": "discovery_demo_20250923_001650",
+    "timestamp": "2025-09-23T01:52:27.666972",
+    "scan_id": "discovery_demo_20250923_015227",
     "scan_type": "detailed",
     "analysis_phase": "complete",
     "open_ports": [],
@@ -894,12 +914,12 @@
     "oui": "unknown",
     "vendor_info": {},
     "analysis_complete": true,
-    "last_seen": "2025-09-23T00:18:38.245328",
+    "last_seen": "2025-09-23T01:54:15.070979",
     "mdns_services": [],
     "snmp_info": {}
   },
   "192.168.1.3": {
-    "first_seen": "2025-09-23T00:16:50.670016",
+    "first_seen": "2025-09-23T01:52:27.667028",
     "discovery_count": 1,
     "status_history": [
       {
@@ -925,6 +945,18 @@
         "status": "active",
         "open_ports": [],
         "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:40:02.453175",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      },
+      {
+        "timestamp": "2025-09-23T01:54:15.111842",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
       }
     ],
     "ip": "192.168.1.3",
@@ -940,8 +972,36 @@
     "snmp_info": {},
     "confidence": 0.0,
     "discovery_method": "arp_table",
-    "timestamp": "2025-09-23T00:16:50.670016",
-    "scan_id": "discovery_demo_20250923_001650",
-    "last_seen": "2025-09-23T00:18:38.289248"
+    "timestamp": "2025-09-23T01:52:27.667028",
+    "scan_id": "discovery_demo_20250923_015227",
+    "last_seen": "2025-09-23T01:54:15.111831"
+  },
+  "192.168.1.58": {
+    "first_seen": "2025-09-23T01:52:27.667001",
+    "discovery_count": 1,
+    "status_history": [
+      {
+        "timestamp": "2025-09-23T01:54:15.090161",
+        "status": "active",
+        "open_ports": [],
+        "analysis_complete": false
+      }
+    ],
+    "ip": "192.168.1.58",
+    "status": "active",
+    "hostname": null,
+    "mac_address": "00:04:4b:ea:f5:75",
+    "manufacturer": "Nvidia Corporation",
+    "device_type": null,
+    "os_family": null,
+    "open_ports": [],
+    "services": {},
+    "mdns_services": [],
+    "snmp_info": {},
+    "confidence": 0.2,
+    "discovery_method": "arp_table",
+    "timestamp": "2025-09-23T01:52:27.667001",
+    "scan_id": "discovery_demo_20250923_015227",
+    "last_seen": "2025-09-23T01:54:15.090156"
   }
 }
