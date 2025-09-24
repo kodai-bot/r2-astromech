@@ -1,4 +1,4 @@
-# Industrial Automaton R2-D2 NetRecon Astromech
+# Industrial Automaton R2 NetRecon Astromech
 
 **Autonomous Network Discovery and Analysis System**
 

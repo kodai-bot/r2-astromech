@@ -3,7 +3,7 @@
 R2-A1 Network Discovery Scan Director
 
 This script orchestrates the comprehensive network discovery capabilities
-of the R2-D2 Astromech unit system. It acts as the central coordinator,
+of the R2-A1 Astromech unit system. It acts as the central coordinator,
 initializing all scanning modules and directing the discovery sequence.
 
 """
