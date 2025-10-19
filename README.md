@@ -9,7 +9,9 @@
 
 ## Product Overview
 
-The **R2-NetRecon Advanced Discovery Astromech** represents the latest evolution in Industrial Automaton's legendary R2-series line. Built with IA's proven modular design philosophy, this specialized astromech unit provides comprehensive network reconnaissance and analysis capabilities for modern environments.
+The **R2-NetRecon Advanced Discovery Astromech** represents the latest evolution in Industrial Automaton's legendary R2-series line. Built with IA's proven modular design philosophy, this specialized astromech unit provides comprehensive network reconnaissance and analysis capabilities for modern environments. 
+
+The idea here is to actually build helper 'droids with the same functionality as R2-D2 and others in the Star Wars universe. 
 
 ### Manufacturer Information
 - **Company**: Industrial Automata
