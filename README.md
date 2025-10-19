@@ -1,9 +1,9 @@
-# Industrial Automaton R2 NetRecon Astromech
+# Industrial Automata R2 NetRecon Astromech
 
 **Autonomous Network Discovery and Analysis System**
 
 > *"Modularity, Reliability, Intelligence"*  
-> **Industrial Automaton - Since 32 BBY**
+
 
 ---
 
@@ -12,20 +12,20 @@
 The **R2-NetRecon Advanced Discovery Astromech** represents the latest evolution in Industrial Automaton's legendary R2-series line. Built with IA's proven modular design philosophy, this specialized astromech unit provides comprehensive network reconnaissance and analysis capabilities for modern environments.
 
 ### Manufacturer Information
-- **Company**: Industrial Automaton
-- **Headquarters**: Rordis City, Nubia  
+- **Company**: Industrial Automata
+- **Headquarters**: Sligo, Ireland
 - **Product Line**: R2-series Astromech Network Analysis Suite
 - **Model**: R2-NetRecon Advanced Discovery Unit v2.0
-- **Intellex Compatibility**: IV and later
+- **Intellex Compatibility**: Jetson Nano
 
 ---
 
 ## Technical Specifications
 
 ### Core Systems
-- **Computer Core**: Intellex IV with 10,000+ MPF operations/second
-- **Sensor Array**: Full-spectrum transceiver with 360° capability
-- **Height**: 0.96 meters (standard R2 specifications)
+- **Computer Core**: Jetson Nano Dev Kit/ Raspberry Pi 5
+- **Sensor Array**: To be built
+- **Height**: To be decided
 - **Discovery Modes**: Simple, Comprehensive, Deep Analysis
 
 ### Advanced Reconnaissance Capabilities
@@ -166,7 +166,7 @@ src/modules/
 
 ---
 
-## Industrial Automaton Heritage
+## Inspired by Industrial Automaton Heritage in Star Wars
 
 This project honors the legacy of Industrial Automaton's engineering excellence. The R2-series has served faithfully across the galaxy for decades, from starfighter maintenance to diplomatic missions. Our network analysis capabilities represent the natural evolution of R2's problem-solving intelligence for modern environments.
 
@@ -182,7 +182,7 @@ This project honors the legacy of Industrial Automaton's engineering excellence.
 
 ### Warranty
 - 3-year warranty on R2-NetRecon system
-- User support through Industrial Automaton community
+- User support through Industrial Automata community
 - Field-serviceable components with standard R2 tools
 
 ### Documentation
@@ -194,13 +194,10 @@ This project honors the legacy of Industrial Automaton's engineering excellence.
 
 ## License
 
-This project operates under Industrial Automaton's open development philosophy, encouraging innovation and community enhancement while maintaining compatibility with R2-series standards.
+This project operates under Industrial Automata's open development philosophy, encouraging innovation and community enhancement while maintaining compatibility with R2-series standards.
 
 ---
 
-*Built with Industrial Automaton's legendary quality and engineering excellence.*
-
-**Industrial Automaton** - *Galaxy's Premier Astromech Manufacturer*  
-Rordis City, Nubia | Since 32 BBY
+*Built with Industrial Automata's legendary quality and engineering excellence.*
 
 *"The most successful robotic platforms balance technical capability with emotional connection and practical utility."*
