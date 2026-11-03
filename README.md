@@ -9,9 +9,13 @@ three-part series on allismotion.org:
 2. [The Death of the Helper Droid](https://allismotion.org/the-death-of-the-helper-droid-how-modular-design-philosophy-gave-way-to-vendor-lock-in/)
 3. [Universal Maintenance Design](https://allismotion.org/universal-maintenance-design-making-infrastructure-r2-accessible/)
 
-**Status: experimental (2025).** A personal testbed, not a product or a service. It runs on a Linux
-PC and is being moved to a Raspberry Pi 5. See [docs/REVIEW.md](docs/REVIEW.md) for an honest
-assessment of the code and the planned work.
+**Status: early iteration (2025), not being developed further.** This was the first attempt at
+R2's network awareness. The work carried on in the Raspberry Pi droid project and then in
+**Senchas** (to be published soon), which takes a different approach: instead of scanning the
+network from outside, each machine reports what it believes, and an append-only record shows when
+and where those beliefs first diverged. This repository is kept as a record of that first step.
+See [docs/REVIEW.md](docs/REVIEW.md) for what was fixed, what is still wrong, and what carried
+forward.
 
 ## What it does
 
@@ -69,7 +73,7 @@ pytest          # device database, event bus, configuration
 ruff check .
 ```
 
-The tests cover the core only; the scanners have none yet (see [docs/REVIEW.md](docs/REVIEW.md)).
+The tests cover the core only; the scanners have none (see [docs/REVIEW.md](docs/REVIEW.md)).
 
 ## Layout
 
