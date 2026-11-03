@@ -45,3 +45,15 @@ Thumbs.db
 
 # Audio output files (generated)
 data/sounds/last_r2_output.wav
+
+# Real scan results: these describe whatever network R2 was run on. Never commit them.
+# Synthetic examples live in data/devices/example/.
+data/devices/*.json
+
+# Editor / AI-assistant history and local helpers
+.specstory/
+.cursorindexingignore
+activate_venv.sh
+venv-rpi/
+.pytest_cache/
+.ruff_cache/

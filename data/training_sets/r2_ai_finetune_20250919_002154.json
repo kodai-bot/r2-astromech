@@ -23,7 +23,7 @@
       "ai_enhanced": true
     },
     {
-      "input": "Device with has hostname, AI: : 'dylan-hpelitedesk.",
+      "input": "Device with has hostname, AI: : 'device-2.",
       "output": "printer",
       "confidence": 0.7999999999999999,
       "ai_enhanced": true

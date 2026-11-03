@@ -1,123 +1,123 @@
 {
   "NET-7B924222": {
-    "network_range": "192.168.1.0/24",
+    "network_range": "192.0.2.0/24",
     "scan_timestamp": "2025-09-14T23:13:55.319278",
-    "gateway_ip": "192.168.1.1",
+    "gateway_ip": "192.0.2.1",
     "device_count": 6,
     "device_signatures": [
       {
-        "ip": "192.168.1.1",
-        "mac": "04:71:53:98:1c:a1",
-        "hostname": "www",
+        "ip": "192.0.2.1",
+        "mac": "02:00:5e:00:00:02",
+        "hostname": "device-5.example",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.6",
-        "mac": "c8:63:f1:88:ee:69",
+        "ip": "192.0.2.6",
+        "mac": "02:00:5e:00:00:07",
         "hostname": "unknown",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.24",
-        "mac": "90:09:d0:60:db:79",
-        "hostname": "Cibo",
+        "ip": "192.0.2.24",
+        "mac": "02:00:5e:00:00:06",
+        "hostname": "device-1.example",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.25",
+        "ip": "192.0.2.25",
         "mac": "unknown",
-        "hostname": "dylan-hpelitedesk705",
+        "hostname": "device-4.example",
         "device_type": "unknown",
         "manufacturer": "unknown"
       },
       {
-        "ip": "192.168.1.54",
-        "mac": "00:04:4b:ea:f5:75",
-        "hostname": "central-ai",
+        "ip": "192.0.2.54",
+        "mac": "02:00:5e:00:00:01",
+        "hostname": "device-3.example",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.56",
-        "mac": "00:04:4b:ea:f5:75",
-        "hostname": "central-ai",
+        "ip": "192.0.2.56",
+        "mac": "02:00:5e:00:00:01",
+        "hostname": "device-3.example",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       }
     ],
     "network_code": "NET-7B924222",
     "network_hash": "7B924222",
-    "fingerprint_string": "192.168.1.0/24_192.168.1.1__www__unknown__Cibo",
+    "fingerprint_string": "192.0.2.0/24_192.0.2.1__www__unknown__device-4",
     "scan_date": "2025-09-14",
     "scan_time": "23:13:55"
   },
   "NET-1B280560": {
-    "network_range": "192.168.1.0/24",
+    "network_range": "192.0.2.0/24",
     "scan_timestamp": "2025-09-19T01:04:56.083136",
-    "gateway_ip": "192.168.1.1",
+    "gateway_ip": "192.0.2.1",
     "device_count": 6,
     "device_signatures": [
       {
-        "ip": "192.168.1.1",
+        "ip": "192.0.2.1",
         "mac": "",
         "hostname": "",
         "device_type": "",
         "manufacturer": ""
       },
       {
-        "ip": "192.168.1.6",
-        "mac": "c8:63:f1:88:ee:69",
+        "ip": "192.0.2.6",
+        "mac": "02:00:5e:00:00:07",
         "hostname": "unknown",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.24",
+        "ip": "192.0.2.24",
         "mac": "",
         "hostname": "",
         "device_type": "",
         "manufacturer": ""
       },
       {
-        "ip": "192.168.1.25",
+        "ip": "192.0.2.25",
         "mac": "unknown",
-        "hostname": "dylan-hpelitedesk705",
+        "hostname": "device-4.example",
         "device_type": "unknown",
         "manufacturer": "unknown"
       },
       {
-        "ip": "192.168.1.54",
-        "mac": "00:04:4b:ea:f5:75",
-        "hostname": "central-ai",
+        "ip": "192.0.2.54",
+        "mac": "02:00:5e:00:00:01",
+        "hostname": "device-3.example",
         "device_type": "linux_computer",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.55",
-        "mac": "28:d0:ea:88:ba:94",
-        "hostname": "central-ai",
+        "ip": "192.0.2.55",
+        "mac": "02:00:5e:00:00:03",
+        "hostname": "device-3.example",
         "device_type": "linux_computer",
         "manufacturer": "Unknown Manufacturer"
       }
     ],
     "network_code": "NET-1B280560",
     "network_hash": "1B280560",
-    "fingerprint_string": "192.168.1.0/24_192.168.1.1____unknown__",
+    "fingerprint_string": "192.0.2.0/24_192.0.2.1____unknown__",
     "scan_date": "2025-09-19",
     "scan_time": "01:04:56"
   },
   "NET-FC3A1DB9": {
-    "network_range": "192.168.1.0/24",
+    "network_range": "192.0.2.0/24",
     "scan_timestamp": "2025-09-15T00:38:55.498818",
-    "gateway_ip": "192.168.1.1",
+    "gateway_ip": "192.0.2.1",
     "device_count": 1,
     "device_signatures": [
       {
-        "ip": "192.168.1.6",
-        "mac": "c8:63:f1:88:ee:69",
+        "ip": "192.0.2.6",
+        "mac": "02:00:5e:00:00:07",
         "hostname": "unknown",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
@@ -125,79 +125,79 @@
     ],
     "network_code": "NET-FC3A1DB9",
     "network_hash": "FC3A1DB9",
-    "fingerprint_string": "192.168.1.0/24_192.168.1.1__unknown",
+    "fingerprint_string": "192.0.2.0/24_192.0.2.1__unknown",
     "scan_date": "2025-09-15",
     "scan_time": "00:38:55"
   },
   "NET-3D750DEE": {
-    "network_range": "192.168.1.0/24",
+    "network_range": "192.0.2.0/24",
     "scan_timestamp": "2025-09-19T00:22:28.746390",
-    "gateway_ip": "192.168.1.1",
+    "gateway_ip": "192.0.2.1",
     "device_count": 0,
     "device_signatures": [],
     "network_code": "NET-3D750DEE",
     "network_hash": "3D750DEE",
-    "fingerprint_string": "192.168.1.0/24_192.168.1.1_",
+    "fingerprint_string": "192.0.2.0/24_192.0.2.1_",
     "scan_date": "2025-09-19",
     "scan_time": "00:22:28"
   },
   "NET-BA17347A": {
-    "network_range": "192.168.1.0/24",
+    "network_range": "192.0.2.0/24",
     "scan_timestamp": "2025-09-20T01:21:51.190650",
-    "gateway_ip": "192.168.1.1",
+    "gateway_ip": "192.0.2.1",
     "device_count": 8,
     "device_signatures": [
       {
-        "ip": "192.168.1.1",
+        "ip": "192.0.2.1",
         "mac": "",
         "hostname": "",
         "device_type": "",
         "manufacturer": ""
       },
       {
-        "ip": "192.168.1.24",
+        "ip": "192.0.2.24",
         "mac": "",
         "hostname": "",
         "device_type": "",
         "manufacturer": ""
       },
       {
-        "ip": "192.168.1.25",
+        "ip": "192.0.2.25",
         "mac": "unknown",
-        "hostname": "dylan-hpelitedesk705",
+        "hostname": "device-4.example",
         "device_type": "unknown",
         "manufacturer": "unknown"
       },
       {
-        "ip": "192.168.1.5",
-        "mac": "40:b4:cd:f2:88:70",
+        "ip": "192.0.2.5",
+        "mac": "02:00:5e:00:00:04",
         "hostname": "unknown",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.54",
-        "mac": "00:04:4b:ea:f5:75",
-        "hostname": "central-ai",
+        "ip": "192.0.2.54",
+        "mac": "02:00:5e:00:00:01",
+        "hostname": "device-3.example",
         "device_type": "linux_computer",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.55",
-        "mac": "28:d0:ea:88:ba:94",
-        "hostname": "central-ai",
+        "ip": "192.0.2.55",
+        "mac": "02:00:5e:00:00:03",
+        "hostname": "device-3.example",
         "device_type": "linux_computer",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.6",
-        "mac": "c8:63:f1:88:ee:69",
+        "ip": "192.0.2.6",
+        "mac": "02:00:5e:00:00:07",
         "hostname": "unknown",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.9",
+        "ip": "192.0.2.9",
         "mac": "unknown",
         "hostname": "unknown",
         "device_type": "unknown",
@@ -206,47 +206,47 @@
     ],
     "network_code": "NET-BA17347A",
     "network_hash": "BA17347A",
-    "fingerprint_string": "192.168.1.0/24_192.168.1.1______dylan-hpelitedesk705",
+    "fingerprint_string": "192.0.2.0/24_192.0.2.1______device-2",
     "scan_date": "2025-09-20",
     "scan_time": "01:21:51"
   },
   "NET-68253242": {
-    "network_range": "192.168.1.0/24",
+    "network_range": "192.0.2.0/24",
     "scan_timestamp": "2025-09-20T01:58:03.943923",
-    "gateway_ip": "192.168.1.1",
+    "gateway_ip": "192.0.2.1",
     "device_count": 5,
     "device_signatures": [
       {
-        "ip": "192.168.1.1",
+        "ip": "192.0.2.1",
         "mac": "",
         "hostname": "",
         "device_type": "",
         "manufacturer": ""
       },
       {
-        "ip": "192.168.1.24",
+        "ip": "192.0.2.24",
         "mac": "",
         "hostname": "",
         "device_type": "",
         "manufacturer": ""
       },
       {
-        "ip": "192.168.1.54",
-        "mac": "00:04:4b:ea:f5:75",
-        "hostname": "central-ai",
+        "ip": "192.0.2.54",
+        "mac": "02:00:5e:00:00:01",
+        "hostname": "device-3.example",
         "device_type": "linux_computer",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.55",
-        "mac": "28:d0:ea:88:ba:94",
-        "hostname": "central-ai",
+        "ip": "192.0.2.55",
+        "mac": "02:00:5e:00:00:03",
+        "hostname": "device-3.example",
         "device_type": "linux_computer",
         "manufacturer": "Unknown Manufacturer"
       },
       {
-        "ip": "192.168.1.6",
-        "mac": "c8:63:f1:88:ee:69",
+        "ip": "192.0.2.6",
+        "mac": "02:00:5e:00:00:07",
         "hostname": "unknown",
         "device_type": "unknown",
         "manufacturer": "Unknown Manufacturer"
@@ -254,7 +254,7 @@
     ],
     "network_code": "NET-68253242",
     "network_hash": "68253242",
-    "fingerprint_string": "192.168.1.0/24_192.168.1.1______central-ai",
+    "fingerprint_string": "192.0.2.0/24_192.0.2.1______device-3",
     "scan_date": "2025-09-20",
     "scan_time": "01:58:03"
   }
