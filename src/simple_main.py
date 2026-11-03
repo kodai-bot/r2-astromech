@@ -45,7 +45,7 @@ def handle_environment_scan():
             print(f"   Expected at: {scan_director_path}")
             return
             
-        print(f"\n🚀 Starting R2-A1 Network Discovery Scan Director...")
+        print("\n🚀 Starting R2-A1 Network Discovery Scan Director...")
         print("🎵 Listen for R2's chirps as devices are discovered!")
         print("=" * 60)
         
@@ -88,11 +88,11 @@ def handle_system_status():
     print("📦 Modules: Simple Menu Mode")
     print("💚 Health: ✅ Healthy")
     
-    print(f"\n📋 Available Features:")
-    print(f"  ✅ Network Discovery (via demo)")
-    print(f"  📋 Join Network (planned)")
-    print(f"  ✅ System Status")
-    print(f"  ✅ Health Check")
+    print("\n📋 Available Features:")
+    print("  ✅ Network Discovery (via demo)")
+    print("  📋 Join Network (planned)")
+    print("  ✅ System Status")
+    print("  ✅ Health Check")
     
     input("\nPress Enter to continue...")
 

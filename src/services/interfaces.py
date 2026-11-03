@@ -5,8 +5,9 @@ This module defines the interfaces for the service layer,
 which orchestrates operations across multiple modules.
 """
 
-from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional, Union
+from abc import abstractmethod
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 from datetime import datetime
 from enum import Enum
 

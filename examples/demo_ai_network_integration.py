@@ -14,7 +14,8 @@ import signal
 from typing import List
 
 # Add src to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
 from src.core.container import DIContainer
 from src.core.config import Configuration
@@ -146,7 +147,7 @@ class R2AINetworkIntegrationDemo:
     async def run_integration_demo(self) -> None:
         """Run the AI-Network integration demo"""
         try:
-            print(f"\n🤖 R2-D2 AI-Network Integration Demo")
+            print("\n🤖 R2-D2 AI-Network Integration Demo")
             print("=" * 70)
             print("This demo shows R2's intelligent network analysis with:")
             print("• Network scanning with nmap/masscan")
@@ -157,7 +158,7 @@ class R2AINetworkIntegrationDemo:
             print("=" * 70)
             
             # Step 1: Load AI models
-            print(f"\n🧠 Step 1: Loading AI Models")
+            print("\n🧠 Step 1: Loading AI Models")
             print("-" * 40)
             
             # Load Phi-3 for general analysis
@@ -179,7 +180,7 @@ class R2AINetworkIntegrationDemo:
                 return
             
             # Step 2: Perform network scan
-            print(f"\n🔍 Step 2: Network Discovery")
+            print("\n🔍 Step 2: Network Discovery")
             print("-" * 40)
             
             print("Starting network scan...")
@@ -188,11 +189,11 @@ class R2AINetworkIntegrationDemo:
             # Perform network scan
             devices = await self.network_scanner.scan_network()
             
-            print(f"\n📊 Network Scan Results:")
+            print("\n📊 Network Scan Results:")
             print(f"   Devices discovered: {len(devices)}")
             
             if devices:
-                print(f"\n📡 Discovered Devices:")
+                print("\n📡 Discovered Devices:")
                 for i, device in enumerate(devices, 1):
                     ip = device.get('ip', 'unknown')
                     device_type = device.get('device_type', 'unknown')
@@ -207,7 +208,7 @@ class R2AINetworkIntegrationDemo:
                 print("   No devices found on this network")
             
             # Step 3: AI Analysis
-            print(f"\n🤖 Step 3: AI-Powered Analysis")
+            print("\n🤖 Step 3: AI-Powered Analysis")
             print("-" * 40)
             
             if devices:
@@ -217,25 +218,25 @@ class R2AINetworkIntegrationDemo:
                 analysis_results = await self.network_analyzer.analyze_discovered_devices(devices)
                 
                 # Display analysis results
-                print(f"\n🧠 R2's Network Analysis:")
+                print("\n🧠 R2's Network Analysis:")
                 print("=" * 50)
                 
                 # Network summary
                 summary = analysis_results.get('summary', 'No summary available')
-                print(f"\n📋 Network Summary:")
+                print("\n📋 Network Summary:")
                 print(f"   {summary}")
                 
                 # R2 insights
                 insights = analysis_results.get('r2_insights', [])
                 if insights:
-                    print(f"\n💡 R2's Insights:")
+                    print("\n💡 R2's Insights:")
                     for i, insight in enumerate(insights, 1):
                         print(f"   {i}. {insight}")
                 
                 # Security assessment
                 security_assessment = analysis_results.get('security_assessment', {})
                 if security_assessment:
-                    print(f"\n🔒 Security Assessment:")
+                    print("\n🔒 Security Assessment:")
                     print(f"   Overall Security Score: {security_assessment.get('overall_security_score', 0):.1f}/100")
                     print(f"   Secure Devices: {security_assessment.get('secure_devices', 0)}")
                     print(f"   Devices with Issues: {security_assessment.get('devices_with_issues', 0)}")
@@ -243,7 +244,7 @@ class R2AINetworkIntegrationDemo:
                 # IoT analysis
                 iot_devices = analysis_results.get('iot_identification', [])
                 if iot_devices:
-                    print(f"\n🏠 IoT Device Analysis:")
+                    print("\n🏠 IoT Device Analysis:")
                     print(f"   IoT Devices Found: {len(iot_devices)}")
                     for iot_device in iot_devices:
                         ip = iot_device.get('ip')
@@ -256,12 +257,12 @@ class R2AINetworkIntegrationDemo:
                 # Recommendations
                 recommendations = analysis_results.get('recommendations', [])
                 if recommendations:
-                    print(f"\n💡 R2's Recommendations:")
+                    print("\n💡 R2's Recommendations:")
                     for i, rec in enumerate(recommendations, 1):
                         print(f"   {i}. {rec}")
                 
                 # Step 4: Model-specific analysis
-                print(f"\n🔬 Step 4: Specialized AI Analysis")
+                print("\n🔬 Step 4: Specialized AI Analysis")
                 print("-" * 40)
                 
                 # Switch to TinyLLM for IoT-specific analysis
@@ -284,7 +285,7 @@ Device details: {self._create_device_summary_for_ai(devices)}
                 print("Generating IoT-specific analysis...")
                 iot_analysis = await self.ai_manager.generate_response(iot_prompt)
                 
-                print(f"\n🔬 TinyLLM IoT Analysis:")
+                print("\n🔬 TinyLLM IoT Analysis:")
                 print("=" * 50)
                 print(iot_analysis)
                 
@@ -307,12 +308,12 @@ Be helpful, curious, and show your characteristic personality. Include:
                 print("Generating R2 personality response...")
                 r2_response = await self.ai_manager.generate_response(personality_prompt)
                 
-                print(f"\n🤖 R2's Perspective:")
+                print("\n🤖 R2's Perspective:")
                 print("=" * 50)
                 print(r2_response)
                 
                 # Test R2 sound translation
-                print(f"\n🔊 R2 Sound Translation:")
+                print("\n🔊 R2 Sound Translation:")
                 print("-" * 30)
                 test_phrases = [
                     "I found interesting devices on the network!",
@@ -328,25 +329,25 @@ Be helpful, curious, and show your characteristic personality. Include:
                 print("No devices found to analyze")
             
             # Step 5: Show system status
-            print(f"\n📊 Step 5: System Status")
+            print("\n📊 Step 5: System Status")
             print("-" * 40)
             
             # AI model status
             model_status = await self.ai_manager.get_model_status()
-            print(f"🤖 AI Model Status:")
+            print("🤖 AI Model Status:")
             print(f"   Current Model: {model_status.get('current_model', 'None')}")
             print(f"   Status: {model_status.get('status', 'Unknown')}")
             
             # Memory usage
             memory_info = await self.ai_manager.get_memory_usage()
-            print(f"\n💾 Memory Usage:")
+            print("\n💾 Memory Usage:")
             print(f"   System Memory: {memory_info['system_memory']['used_mb']}MB / {memory_info['system_memory']['total_mb']}MB")
             if 'gpu_memory' in memory_info:
                 print(f"   GPU Memory: {memory_info['gpu_memory']['allocated_mb']}MB / {memory_info['gpu_memory']['total_mb']}MB")
             
             # Analysis history
             analysis_history = await self.network_analyzer.get_analysis_history(5)
-            print(f"\n📚 Recent Analysis History:")
+            print("\n📚 Recent Analysis History:")
             print(f"   Analyses performed: {len(analysis_history)}")
             for analysis in analysis_history[-3:]:  # Show last 3
                 analysis_type = analysis.get('analysis_type', 'unknown')
@@ -427,11 +428,11 @@ async def main():
         await asyncio.sleep(1)
         
         # Run integration demo
-        print(f"\n🚀 Starting AI-Network Integration Demo...")
-        print(f"📡 This will demonstrate intelligent network analysis")
-        print(f"🧠 Using both Phi-3 and TinyLLM models")
-        print(f"🎵 With R2's personality and sound system")
-        print(f"\nPress Enter to start, or Ctrl+C to exit...")
+        print("\n🚀 Starting AI-Network Integration Demo...")
+        print("📡 This will demonstrate intelligent network analysis")
+        print("🧠 Using both Phi-3 and TinyLLM models")
+        print("🎵 With R2's personality and sound system")
+        print("\nPress Enter to start, or Ctrl+C to exit...")
         
         try:
             input()  # Wait for user input
@@ -449,15 +450,15 @@ async def main():
         # Stop system
         await demo.stop()
         
-        print(f"\n🎉 Demo completed successfully!")
-        print(f"📊 The AI-Network integration demonstrated:")
-        print(f"   • Intelligent network scanning")
-        print(f"   • AI-powered device analysis")
-        print(f"   • IoT-specific insights (TinyLLM)")
-        print(f"   • General analysis (Phi-3)")
-        print(f"   • Security assessment")
-        print(f"   • R2 personality integration")
-        print(f"   • Event-driven communication")
+        print("\n🎉 Demo completed successfully!")
+        print("📊 The AI-Network integration demonstrated:")
+        print("   • Intelligent network scanning")
+        print("   • AI-powered device analysis")
+        print("   • IoT-specific insights (TinyLLM)")
+        print("   • General analysis (Phi-3)")
+        print("   • Security assessment")
+        print("   • R2 personality integration")
+        print("   • Event-driven communication")
         
         return 0
         

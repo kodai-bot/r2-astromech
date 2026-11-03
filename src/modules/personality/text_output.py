@@ -5,10 +5,8 @@ This module handles text output for scan events, providing human-readable
 descriptions of R2's activities.
 """
 
-import asyncio
-from typing import Dict, Any, List
+from typing import Dict, Any
 from datetime import datetime
-import logging
 
 from ...core.interfaces import IModule, ModuleStatus
 from ...core.events import EventBus, create_event, R2Events
@@ -183,14 +181,14 @@ class TextOutputModule(IModule):
         scan_type = data.get('scan_type', 'device_scan')
         
         if scan_type == 'network_discovery':
-            self._display_message(f"🔍 R2-D2 Beginning Network Discovery", "scan")
-            self._display_message(f"📡 Scanning for available networks...", "scan")
+            self._display_message("🔍 R2-D2 Beginning Network Discovery", "scan")
+            self._display_message("📡 Scanning for available networks...", "scan")
             self._display_message("=" * 60, "scan")
         else:
             scan_id = data.get('scan_id', 'unknown')
             target_network = data.get('target_network', 'unknown')
             
-            self._display_message(f"🔍 R2-D2 Beginning Device Discovery Mission", "scan")
+            self._display_message("🔍 R2-D2 Beginning Device Discovery Mission", "scan")
             self._display_message(f"📡 Target Network: {target_network}", "scan")
             self._display_message(f"🆔 Scan ID: {scan_id}", "scan")
             self._display_message("=" * 60, "scan")
@@ -236,11 +234,11 @@ class TextOutputModule(IModule):
             networks = data.get('networks', [])
             
             self._display_message("=" * 60, "scan")
-            self._display_message(f"🎯 R2-D2 Network Discovery Complete!", "success")
+            self._display_message("🎯 R2-D2 Network Discovery Complete!", "success")
             self._display_message(f"📊 Networks Found: {networks_found}", "success")
             
             if networks:
-                self._display_message(f"\n📡 Available Networks:", "info")
+                self._display_message("\n📡 Available Networks:", "info")
                 for i, network in enumerate(networks, 1):
                     network_type = network.get('type', 'unknown')
                     if network_type == 'wifi':
@@ -266,12 +264,12 @@ class TextOutputModule(IModule):
             stats = data.get('stats', {})
             
             self._display_message("=" * 60, "scan")
-            self._display_message(f"🎯 R2-D2 Device Discovery Mission Complete!", "success")
+            self._display_message("🎯 R2-D2 Device Discovery Mission Complete!", "success")
             self._display_message(f"📊 Total Devices Discovered: {devices_found}", "success")
             self._display_message(f"🆔 Scan ID: {scan_id}", "success")
             
             if stats:
-                self._display_message(f"📈 Scanner Statistics:", "info")
+                self._display_message("📈 Scanner Statistics:", "info")
                 for key, value in stats.items():
                     self._display_message(f"   • {key}: {value}", "info")
         

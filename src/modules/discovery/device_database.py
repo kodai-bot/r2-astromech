@@ -9,7 +9,6 @@ import json
 import os
 from typing import Dict, List, Any, Optional
 from datetime import datetime
-import logging
 
 from ...utils.logging import get_module_logger
 
@@ -230,7 +229,7 @@ class DeviceDatabase:
         """
         matching_devices = []
         for ip, device in self.devices.items():
-            if device.get('manufacturer', '').lower() == manufacturer.lower():
+            if (device.get('manufacturer') or '').lower() == manufacturer.lower():
                 matching_devices.append(device)
         return matching_devices
     
@@ -326,12 +325,12 @@ class DeviceDatabase:
         print(f"❓ Unknown: {summary['unknown_devices']}")
         
         if summary['device_types']:
-            print(f"\n🤖 Device Types:")
+            print("\n🤖 Device Types:")
             for device_type, count in summary['device_types'].items():
                 print(f"   {device_type}: {count}")
         
         if summary['manufacturers']:
-            print(f"\n🏭 Manufacturers:")
+            print("\n🏭 Manufacturers:")
             for manufacturer, count in summary['manufacturers'].items():
                 print(f"   {manufacturer}: {count}")
         

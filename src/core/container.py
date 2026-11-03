@@ -6,12 +6,13 @@ service instances and module dependencies.
 """
 
 import asyncio
+import inspect
 from typing import Dict, Type, Any, Optional, Callable, List
 import logging
 from datetime import datetime
 
 from .interfaces import IModule, IServiceRegistry, ModuleStatus
-from .events import EventBus, create_event, R2Events
+from .events import EventBus
 
 logger = logging.getLogger(__name__)
 
@@ -91,7 +92,7 @@ class DIContainer(IServiceRegistry):
             elif interface_name in self._factories:
                 # Factory instantiation
                 factory = self._factories[interface_name]
-                if asyncio.iscoroutinefunction(factory):
+                if inspect.iscoroutinefunction(factory):
                     instance = await factory(self)
                 else:
                     instance = factory(self)

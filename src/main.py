@@ -17,9 +17,8 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(__file__))
 
 from core.container import DIContainer
-from core.config import Configuration, get_config
+from core.config import Configuration
 from core.events import EventBus, create_event, R2Events
-from core.interfaces import IModule
 
 # Set up logging
 logging.basicConfig(
@@ -356,7 +355,7 @@ async def handle_system_status(r2_system: R2AstromechSystem) -> None:
         print(f"📦 Modules: {len(status['modules'])}")
         print(f"💚 Health: {'✅ Healthy' if status['health']['overall_health'] else '❌ Unhealthy'}")
         
-        print(f"\n📋 Module Details:")
+        print("\n📋 Module Details:")
         for module_name, module_status in status['modules'].items():
             status_icon = "✅" if module_status == "running" else "❌"
             print(f"  {status_icon} {module_name}: {module_status}")

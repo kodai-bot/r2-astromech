@@ -12,7 +12,7 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 import logging
 
-from .interfaces import ITrainingDataExporter, TrainingDataConfig, TrainingDataMetrics
+from .interfaces import ITrainingDataExporter, TrainingDataConfig
 logger = logging.getLogger("training.data_exporter")
 
 

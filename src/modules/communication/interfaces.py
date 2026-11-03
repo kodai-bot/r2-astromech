@@ -5,9 +5,8 @@ This module defines the interfaces for communication functionality
 including message bus, API server, and protocol handlers.
 """
 
-from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional, Union, Callable
-from datetime import datetime
+from abc import abstractmethod
+from typing import Any, Dict, List, Optional, Callable
 
 from ...core.interfaces import IModule, Event
 

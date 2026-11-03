@@ -254,9 +254,9 @@ def extract_device_type_from_response(response: str, device_data: Dict[str, Any]
 
 def apply_rule_based_classification(device_data: Dict[str, Any]) -> str:
     """Apply rule-based device classification when AI is uncertain."""
-    hostname = device_data.get('hostname', '').lower()
+    hostname = (device_data.get('hostname') or '').lower()
     open_ports = device_data.get('open_ports', [])
-    manufacturer = device_data.get('manufacturer', '').lower()
+    manufacturer = (device_data.get('manufacturer') or '').lower()
     
     # Rule-based classification logic
     if 'router' in hostname or 'gateway' in hostname:
@@ -290,7 +290,7 @@ def calculate_hybrid_confidence(ai_response: str, device_data: Dict[str, Any], f
             base_confidence += 0.1
     
     # Check rule-based indicators
-    hostname = device_data.get('hostname', '').lower()
+    hostname = (device_data.get('hostname') or '').lower()
     open_ports = device_data.get('open_ports', [])
     
     # Strong indicators boost confidence
@@ -634,17 +634,17 @@ async def main():
     print("\n" + "=" * 60)
     print("🎉 R2 AI-Enhanced Training Data Complete!")
     print("=" * 60)
-    print(f"\n📊 Statistics:")
+    print("\n📊 Statistics:")
     print(f"  - Total records: {len(training_records)}")
     print(f"  - AI-enhanced: {ai_enhanced_count}")
     print(f"  - Spatial features: {len(geojson_features)}")
     print(f"  - Fine-tuning examples: {len(fine_tuning_examples)}")
     
-    print(f"\n📈 Device distribution:")
+    print("\n📈 Device distribution:")
     for device_type, count in device_types.items():
         print(f"  - {device_type}: {count}")
     
-    print(f"\n🚀 Ready for:")
+    print("\n🚀 Ready for:")
     print("  - ML model training with AI insights")
     print("  - Language model fine-tuning")
     print("  - Security analysis with risk assessment")

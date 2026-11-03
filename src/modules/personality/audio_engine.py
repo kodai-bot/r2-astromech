@@ -9,15 +9,13 @@ import asyncio
 import os
 import wave
 import tempfile
-import subprocess
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Any
 from datetime import datetime
-import logging
 
-from ...core.interfaces import IModule, ModuleStatus
+from ...core.interfaces import ModuleStatus
 from ...core.events import EventBus, create_event, R2Events
 from ..personality.interfaces import IAudioEngine
-from ...utils.exceptions import R2AudioException, R2ModuleException
+from ...utils.exceptions import R2ModuleException
 from ...utils.logging import get_module_logger
 
 logger = get_module_logger("personality.audio_engine")

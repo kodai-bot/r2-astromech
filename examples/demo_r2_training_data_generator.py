@@ -26,16 +26,16 @@ from typing import Dict, Any, Optional
 from datetime import datetime
 
 # Add src to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
-from modules.training import (
+from src.modules.training import (
     ModularTrainingDataGenerator, 
     TrainingDataConfig,
-    NetworkDataFormatter,
     TrainingDataExporter
 )
-from modules.ai.models.tinyllm_model import TinyLLMModel
-from modules.discovery.device_database import DeviceDatabase
+from src.modules.ai.models.tinyllm_model import TinyLLMModel
+from src.modules.discovery.device_database import DeviceDatabase
 
 # Set up logging
 logging.basicConfig(

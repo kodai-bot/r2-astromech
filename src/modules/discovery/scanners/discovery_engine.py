@@ -30,8 +30,7 @@ import asyncio
 import subprocess
 import ipaddress
 import platform
-import logging
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional
 from datetime import datetime
 from enum import Enum
 
@@ -46,7 +45,7 @@ from ..device_database import DeviceDatabase
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../..'))
-from core.events import EventBus, create_event, R2Events
+from core.events import EventBus
 
 class DiscoveryMode(Enum):
     """Discovery scan modes."""

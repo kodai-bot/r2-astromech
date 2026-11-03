@@ -5,8 +5,6 @@ This module implements the IAIModelManager interface for the new modular R2 syst
 It provides event-driven AI model management with proper encapsulation.
 """
 
-import asyncio
-import logging
 import torch
 import gc
 from typing import Dict, Any, Optional, List, Type
@@ -14,12 +12,11 @@ from datetime import datetime
 import psutil
 import os
 
-from ...core.interfaces import IModule, ModuleStatus
+from ...core.interfaces import ModuleStatus
 from ...core.events import EventBus, create_event, R2Events
 from ..ai.interfaces import IAIModelManager, IAIModel
-from ...utils.exceptions import R2AIException, R2ModuleException
+from ...utils.exceptions import R2AIException
 from ...utils.logging import get_module_logger
-from .models.phi3_model import ModularPhi3Model
 from .models.tinyllm_model import TinyLLMModel
 
 logger = get_module_logger("ai.model_manager")

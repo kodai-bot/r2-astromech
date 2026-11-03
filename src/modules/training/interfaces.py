@@ -6,9 +6,8 @@ that produces JSON and GeoJSON training datasets from R2's discoveries.
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Optional, Union
+from typing import Dict, List, Any, Optional
 from datetime import datetime
-import json
 
 
 class IDataFormatter(ABC):

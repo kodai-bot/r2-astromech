@@ -6,16 +6,13 @@ It acts as a bridge between the network scanner and AI models, providing
 contextual analysis and insights.
 """
 
-import asyncio
-import logging
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List
 from datetime import datetime
-import json
 
-from ...core.interfaces import IModule, ModuleStatus
+from ...core.interfaces import ModuleStatus
 from ...core.events import EventBus, create_event, R2Events
 from ..ai.interfaces import INetworkAnalyzer
-from ...utils.exceptions import R2AIException, R2ModuleException
+from ...utils.exceptions import R2AIException
 from ...utils.logging import get_module_logger
 
 logger = get_module_logger("ai.network_analyzer")
@@ -529,9 +526,9 @@ Respond in R2's characteristic style - helpful, curious, and sometimes cheeky.
             'hue', 'nest', 'ring', 'wyze', 'tp-link', 'belkin'
         ]
         
-        device_type = device.get('device_type', '').lower()
-        manufacturer = device.get('manufacturer', '').lower()
-        hostname = device.get('hostname', '').lower()
+        device_type = (device.get('device_type') or '').lower()
+        manufacturer = (device.get('manufacturer') or '').lower()
+        hostname = (device.get('hostname') or '').lower()
         
         # Check for IoT indicators
         for indicator in iot_indicators:
@@ -550,9 +547,9 @@ Respond in R2's characteristic style - helpful, curious, and sometimes cheeky.
         """Get IoT indicators for a device"""
         indicators = []
         
-        device_type = device.get('device_type', '').lower()
-        manufacturer = device.get('manufacturer', '').lower()
-        hostname = device.get('hostname', '').lower()
+        device_type = (device.get('device_type') or '').lower()
+        manufacturer = (device.get('manufacturer') or '').lower()
+        hostname = (device.get('hostname') or '').lower()
         
         if 'router' in device_type:
             indicators.append('Network infrastructure device')

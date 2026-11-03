@@ -5,7 +5,6 @@ This module converts raw network discovery data into structured formats
 suitable for machine learning training datasets.
 """
 
-import json
 import hashlib
 import re
 from typing import Dict, List, Any, Optional, Tuple
@@ -244,8 +243,8 @@ class NetworkDataFormatter(IDataFormatter):
         Returns:
             Tuple of (device_type, confidence_score)
         """
-        hostname = device_data.get('hostname', '').lower()
-        manufacturer = device_data.get('manufacturer', '').lower()
+        hostname = (device_data.get('hostname') or '').lower()
+        manufacturer = (device_data.get('manufacturer') or '').lower()
         open_ports = device_data.get('open_ports', [])
         
         # Score each device type

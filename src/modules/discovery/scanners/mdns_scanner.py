@@ -21,7 +21,6 @@ Enhanced R2 Capabilities:
 """
 
 import asyncio
-import json
 import re
 import ipaddress
 from typing import List, Dict, Any, Optional
@@ -191,7 +190,7 @@ class MDNSScanner(DiscoveryScanner):
                 '--terminate'              # Terminate after scan_duration
             ]
             
-            self.logger.info(f"🔍 Running avahi-browse for mDNS discovery...")
+            self.logger.info("🔍 Running avahi-browse for mDNS discovery...")
             
             process = await asyncio.create_subprocess_exec(
                 *cmd,
@@ -395,7 +394,7 @@ class MDNSScanner(DiscoveryScanner):
     def _classify_device_from_mdns(self, services: List[Dict[str, Any]], hostname: Optional[str] = None) -> Optional[str]:
         """Classify device type based on mDNS services."""
         service_types = [s.get('type', '') for s in services]
-        service_names = [s.get('name', '').lower() for s in services]
+        service_names = [(s.get('name') or '').lower() for s in services]
         
         # Game consoles - Check hostname/service names first
         all_names = service_names.copy()
@@ -419,7 +418,7 @@ class MDNSScanner(DiscoveryScanner):
         spotify_services = [s for s in services if '_spotify-connect._tcp' in s.get('type', '')]
         if spotify_services:
             # Check if it's a gaming device by hostname or service name
-            spotify_names = all_names + [s.get('name', '').lower() for s in spotify_services]
+            spotify_names = all_names + [(s.get('name') or '').lower() for s in spotify_services]
             if any(gaming_term in name for name in spotify_names for gaming_term in ['ps4', 'ps5', 'xbox', 'playstation']):
                 return 'game_console'
             # Otherwise, it's likely a smart speaker
@@ -449,7 +448,7 @@ class MDNSScanner(DiscoveryScanner):
         if any('_ssh._tcp' in st and '_http._tcp' in st for st in service_types):
             return 'network_device'
         
-        # Servers/NAS (like "Cibo")
+        # Servers/NAS
         if any('_smb._tcp' in st and '_ftp._tcp' in st for st in service_types):
             return 'server'
         

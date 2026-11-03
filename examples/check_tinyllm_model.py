@@ -14,7 +14,8 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Add src to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
 # Set up logging
 logging.basicConfig(
@@ -32,11 +33,11 @@ async def test_model_loading():
         
         model_path = "weiser/82M-0.4"
         print(f"📦 Model: {model_path}")
-        print(f"💾 Device: CPU")
-        print(f"🔧 Parameters: 82M")
+        print("💾 Device: CPU")
+        print("🔧 Parameters: 82M")
         
         # Test 1: Load tokenizer
-        print(f"\n🔤 Step 1: Loading Tokenizer")
+        print("\n🔤 Step 1: Loading Tokenizer")
         print("-" * 30)
         
         tokenizer = AutoTokenizer.from_pretrained(
@@ -53,7 +54,7 @@ async def test_model_loading():
         print(f"   Model max length: {tokenizer.model_max_length}")
         
         # Test 2: Load model
-        print(f"\n🤖 Step 2: Loading Model")
+        print("\n🤖 Step 2: Loading Model")
         print("-" * 30)
         
         model = AutoModelForCausalLM.from_pretrained(
@@ -68,7 +69,7 @@ async def test_model_loading():
         print(f"   Device: {next(model.parameters()).device}")
         
         # Test 3: Basic generation
-        print(f"\n💬 Step 3: Testing Generation")
+        print("\n💬 Step 3: Testing Generation")
         print("-" * 30)
         
         test_prompts = [
@@ -99,18 +100,18 @@ async def test_model_loading():
             print(f"   Response: {response}")
         
         # Test 4: Memory usage
-        print(f"\n💾 Step 4: Memory Usage")
+        print("\n💾 Step 4: Memory Usage")
         print("-" * 30)
         
         if torch.cuda.is_available():
-            print(f"   CUDA available: Yes")
+            print("   CUDA available: Yes")
             print(f"   CUDA memory allocated: {torch.cuda.memory_allocated() / 1024**2:.1f} MB")
             print(f"   CUDA memory reserved: {torch.cuda.memory_reserved() / 1024**2:.1f} MB")
         else:
-            print(f"   CUDA available: No")
+            print("   CUDA available: No")
         
         # Test 5: Cleanup
-        print(f"\n🧹 Step 5: Cleanup")
+        print("\n🧹 Step 5: Cleanup")
         print("-" * 30)
         
         del model
@@ -121,8 +122,8 @@ async def test_model_loading():
         
         print("✅ Model and tokenizer cleaned up successfully")
         
-        print(f"\n🎉 All tests passed!")
-        print(f"✅ The weiser/82M-0.4 model is ready for R2 integration")
+        print("\n🎉 All tests passed!")
+        print("✅ The weiser/82M-0.4 model is ready for R2 integration")
         
         return True
         
@@ -135,7 +136,7 @@ async def test_model_loading():
 async def test_r2_integration():
     """Test R2 integration with the model"""
     try:
-        print(f"\n🤖 Testing R2 Integration")
+        print("\n🤖 Testing R2 Integration")
         print("=" * 50)
         
         from src.modules.ai.models.tinyllm_model import TinyLLMModel
@@ -161,7 +162,7 @@ async def test_r2_integration():
             
             # Test model info
             model_info = await model.get_model_info()
-            print(f"\n📋 Model Information:")
+            print("\n📋 Model Information:")
             print(f"   Name: {model_info['name']}")
             print(f"   Type: {model_info['type']}")
             print(f"   Parameters: {model_info['parameters']}")
@@ -169,7 +170,7 @@ async def test_r2_integration():
             print(f"   Optimization: {model_info['optimization']}")
             
             # Test generation
-            print(f"\n💬 Testing Generation:")
+            print("\n💬 Testing Generation:")
             test_input = "Hello R2! How are you today?"
             response = await model.generate_response(test_input)
             print(f"   Input: {test_input}")
@@ -180,7 +181,7 @@ async def test_r2_integration():
             print(f"   R2 Sounds: {r2_sounds}")
             
             # Test IoT analysis
-            print(f"\n🔬 Testing IoT Analysis:")
+            print("\n🔬 Testing IoT Analysis:")
             iot_input = "I found temperature sensors DS18B20 and MQTT broker on port 1883"
             iot_response = await model.generate_response(iot_input)
             print(f"   Input: {iot_input}")
@@ -188,7 +189,7 @@ async def test_r2_integration():
             
             # Cleanup
             await model.unload_model()
-            print(f"\n✅ R2 integration test completed successfully")
+            print("\n✅ R2 integration test completed successfully")
             
         else:
             print("❌ Failed to load TinyLLM model")
@@ -212,28 +213,28 @@ async def main():
     
     try:
         # Test 1: Basic model loading
-        print(f"\n🔬 Test 1: Basic Model Loading")
+        print("\n🔬 Test 1: Basic Model Loading")
         success1 = await test_model_loading()
         
         if not success1:
-            print(f"\n❌ Basic model loading failed - stopping tests")
+            print("\n❌ Basic model loading failed - stopping tests")
             return 1
         
         # Test 2: R2 integration
-        print(f"\n🤖 Test 2: R2 Integration")
+        print("\n🤖 Test 2: R2 Integration")
         success2 = await test_r2_integration()
         
         if success1 and success2:
-            print(f"\n🎉 All tests passed!")
-            print(f"✅ The weiser/82M-0.4 model is ready for production use")
-            print(f"🚀 You can now run the full R2 demos with TinyLLM")
+            print("\n🎉 All tests passed!")
+            print("✅ The weiser/82M-0.4 model is ready for production use")
+            print("🚀 You can now run the full R2 demos with TinyLLM")
             return 0
         else:
-            print(f"\n❌ Some tests failed")
+            print("\n❌ Some tests failed")
             return 1
             
     except KeyboardInterrupt:
-        print(f"\n🛑 Tests interrupted by user")
+        print("\n🛑 Tests interrupted by user")
         return 0
         
     except Exception as e:

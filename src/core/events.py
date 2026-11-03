@@ -6,6 +6,7 @@ allowing modules to communicate without direct dependencies.
 """
 
 import asyncio
+import inspect
 from typing import Dict, List, Callable, Any
 from datetime import datetime
 from collections import deque
@@ -89,7 +90,7 @@ class EventBus(IEventBus):
     async def _safe_handler_call(self, handler: Callable, event: Event) -> None:
         """Safely call event handler with error handling"""
         try:
-            if asyncio.iscoroutinefunction(handler):
+            if inspect.iscoroutinefunction(handler):
                 await handler(event)
             else:
                 handler(event)

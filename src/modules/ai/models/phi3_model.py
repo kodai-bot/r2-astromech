@@ -8,12 +8,12 @@ It provides natural language processing and R2 communication translation.
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 import logging
-from typing import Dict, Any, Optional, List
-import re
+from typing import Dict, Any
 import random
 from datetime import datetime
 
 from ..interfaces import IAIModel
+from ....core.events import create_event, R2Events
 
 logger = logging.getLogger(__name__)
 
@@ -90,7 +90,7 @@ class ModularPhi3Model(IAIModel):
         self.conversation_history = []
         self.max_history = config.get('context_window', 10)
         
-        self.logger.info(f"Modular Phi-3 model initialized")
+        self.logger.info("Modular Phi-3 model initialized")
     
     async def load_model(self) -> bool:
         """

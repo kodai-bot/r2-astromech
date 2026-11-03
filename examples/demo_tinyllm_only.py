@@ -11,10 +11,10 @@ import sys
 import os
 import logging
 import signal
-from typing import List
 
 # Add src to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
 from src.core.container import DIContainer
 from src.core.config import Configuration
@@ -146,7 +146,7 @@ class R2TinyLLMDemo:
     async def run_tinyllm_demo(self) -> None:
         """Run the TinyLLM demo"""
         try:
-            print(f"\n🤖 R2-D2 TinyLLM Demo")
+            print("\n🤖 R2-D2 TinyLLM Demo")
             print("=" * 60)
             print("This demo shows R2's lightweight AI capabilities:")
             print("• TinyLLM model optimized for resource-constrained devices")
@@ -157,7 +157,7 @@ class R2TinyLLMDemo:
             print("=" * 60)
             
             # Step 1: Load TinyLLM model
-            print(f"\n🧠 Step 1: Loading TinyLLM Model")
+            print("\n🧠 Step 1: Loading TinyLLM Model")
             print("-" * 40)
             
             print("Loading TinyLLM model (lightweight, CPU-optimized)...")
@@ -168,7 +168,7 @@ class R2TinyLLMDemo:
                 # Show model info
                 model_status = await self.ai_manager.get_model_status()
                 model_info = model_status.get('model_info', {})
-                print(f"\n📋 Model Information:")
+                print("\n📋 Model Information:")
                 print(f"   Name: {model_info.get('name', 'Unknown')}")
                 print(f"   Type: {model_info.get('type', 'Unknown')}")
                 print(f"   Specialization: {model_info.get('specialization', 'Unknown')}")
@@ -176,7 +176,7 @@ class R2TinyLLMDemo:
                 print(f"   Optimization: {model_info.get('optimization', 'Unknown')}")
                 
                 capabilities = model_info.get('capabilities', [])
-                print(f"\n🔧 Capabilities:")
+                print("\n🔧 Capabilities:")
                 for capability in capabilities:
                     print(f"   • {capability}")
             else:
@@ -184,7 +184,7 @@ class R2TinyLLMDemo:
                 return
             
             # Step 2: Test general conversation
-            print(f"\n💬 Step 2: General Conversation Test")
+            print("\n💬 Step 2: General Conversation Test")
             print("-" * 40)
             
             conversation_tests = [
@@ -206,7 +206,7 @@ class R2TinyLLMDemo:
                 await asyncio.sleep(1)  # Brief pause
             
             # Step 3: Test IoT analysis
-            print(f"\n🔬 Step 3: IoT Analysis Test")
+            print("\n🔬 Step 3: IoT Analysis Test")
             print("-" * 40)
             
             iot_tests = [
@@ -228,14 +228,14 @@ class R2TinyLLMDemo:
                 await asyncio.sleep(1)  # Brief pause
             
             # Step 4: Test network analysis
-            print(f"\n🌐 Step 4: Network Analysis Test")
+            print("\n🌐 Step 4: Network Analysis Test")
             print("-" * 40)
             
             print("Performing quick network scan...")
             devices = await self.network_scanner.scan_network()
             
             if devices:
-                print(f"\n📊 Network Scan Results:")
+                print("\n📊 Network Scan Results:")
                 print(f"   Devices discovered: {len(devices)}")
                 
                 # Show discovered devices
@@ -250,20 +250,20 @@ class R2TinyLLMDemo:
                         print(f"      Open Ports: {open_ports}")
                 
                 # AI analysis of discovered devices
-                print(f"\n🧠 R2's AI Analysis:")
+                print("\n🧠 R2's AI Analysis:")
                 analysis_results = await self.network_analyzer.analyze_discovered_devices(devices)
                 
                 # Show key insights
                 insights = analysis_results.get('r2_insights', [])
                 if insights:
-                    print(f"\n💡 R2's Insights:")
+                    print("\n💡 R2's Insights:")
                     for i, insight in enumerate(insights, 1):
                         print(f"   {i}. {insight}")
                 
                 # Show security assessment
                 security_assessment = analysis_results.get('security_assessment', {})
                 if security_assessment:
-                    print(f"\n🔒 Security Assessment:")
+                    print("\n🔒 Security Assessment:")
                     print(f"   Overall Security Score: {security_assessment.get('overall_security_score', 0):.1f}/100")
                     print(f"   Secure Devices: {security_assessment.get('secure_devices', 0)}")
                     print(f"   Devices with Issues: {security_assessment.get('devices_with_issues', 0)}")
@@ -271,31 +271,31 @@ class R2TinyLLMDemo:
                 # Show recommendations
                 recommendations = analysis_results.get('recommendations', [])
                 if recommendations:
-                    print(f"\n💡 R2's Recommendations:")
+                    print("\n💡 R2's Recommendations:")
                     for i, rec in enumerate(recommendations, 1):
                         print(f"   {i}. {rec}")
             else:
                 print("   No devices found on this network")
             
             # Step 5: Show system status
-            print(f"\n📊 Step 5: System Status")
+            print("\n📊 Step 5: System Status")
             print("-" * 40)
             
             # Model status
             model_status = await self.ai_manager.get_model_status()
-            print(f"🤖 AI Model Status:")
+            print("🤖 AI Model Status:")
             print(f"   Current Model: {model_status.get('current_model', 'None')}")
             print(f"   Status: {model_status.get('status', 'Unknown')}")
             
             # Memory usage
             memory_info = await self.ai_manager.get_memory_usage()
-            print(f"\n💾 Memory Usage:")
+            print("\n💾 Memory Usage:")
             print(f"   System Memory: {memory_info['system_memory']['used_mb']}MB / {memory_info['system_memory']['total_mb']}MB")
             print(f"   Memory Usage: {memory_info['system_memory']['percent']:.1f}%")
             
             # Analysis history
             analysis_history = await self.network_analyzer.get_analysis_history(3)
-            print(f"\n📚 Recent Analysis History:")
+            print("\n📚 Recent Analysis History:")
             print(f"   Analyses performed: {len(analysis_history)}")
             for analysis in analysis_history:
                 analysis_type = analysis.get('analysis_type', 'unknown')
@@ -364,11 +364,11 @@ async def main():
         await asyncio.sleep(1)
         
         # Run TinyLLM demo
-        print(f"\n🚀 Starting TinyLLM Demo...")
-        print(f"🧠 This will demonstrate TinyLLM's capabilities")
-        print(f"📡 Including IoT analysis and general conversation")
-        print(f"🎵 With R2's personality and sound system")
-        print(f"\nPress Enter to start, or Ctrl+C to exit...")
+        print("\n🚀 Starting TinyLLM Demo...")
+        print("🧠 This will demonstrate TinyLLM's capabilities")
+        print("📡 Including IoT analysis and general conversation")
+        print("🎵 With R2's personality and sound system")
+        print("\nPress Enter to start, or Ctrl+C to exit...")
         
         try:
             input()  # Wait for user input
@@ -386,14 +386,14 @@ async def main():
         # Stop system
         await demo.stop()
         
-        print(f"\n🎉 Demo completed successfully!")
-        print(f"📊 The TinyLLM system demonstrated:")
-        print(f"   • Lightweight AI model (CPU-optimized)")
-        print(f"   • IoT sensor data analysis")
-        print(f"   • General conversation capabilities")
-        print(f"   • Network analysis and security assessment")
-        print(f"   • R2 personality integration")
-        print(f"   • Resource-efficient operation")
+        print("\n🎉 Demo completed successfully!")
+        print("📊 The TinyLLM system demonstrated:")
+        print("   • Lightweight AI model (CPU-optimized)")
+        print("   • IoT sensor data analysis")
+        print("   • General conversation capabilities")
+        print("   • Network analysis and security assessment")
+        print("   • R2 personality integration")
+        print("   • Resource-efficient operation")
         
         return 0
         

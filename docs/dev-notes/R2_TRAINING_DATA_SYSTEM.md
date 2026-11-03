@@ -118,14 +118,14 @@ The R2 unit has been successfully configured to:
 
 ### Basic Training Data Generation
 ```bash
-cd /home/dylanf/workspace/r2_astromech
+cd r2-astromech
 source r2_venv_new/bin/activate
 python demo_simple_training_data.py
 ```
 
 ### AI-Enhanced Training Data Generation
 ```bash
-cd /home/dylanf/workspace/r2_astromech
+cd r2-astromech
 source r2_venv_new/bin/activate
 python demo_r2_tinyllm_standalone.py
 ```

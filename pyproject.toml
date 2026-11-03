@@ -1,0 +1,23 @@
+[project]
+name = "r2-astromech"
+version = "0.2.0"
+description = "Hobby robotics testbed: network discovery and status feedback for a maintenance droid"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["examples/legacy", ".specstory"]
+
+[tool.ruff.lint]
+# Pyflakes (real errors) only for now; see docs/REVIEW.md for the plan to widen this.
+select = ["F"]
+# F841: six values are read and never used, which looks like unfinished logic; see docs/REVIEW.md.
+ignore = ["F841"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]  # re-exports

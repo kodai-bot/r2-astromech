@@ -8,7 +8,6 @@ import logging
 import logging.handlers
 import os
 from typing import Optional, Dict, Any
-from datetime import datetime
 
 
 class R2Logger:

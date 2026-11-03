@@ -20,10 +20,11 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 # Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
 # Import TinyLLM directly
-from modules.ai.models.tinyllm_model import TinyLLMModel
+from src.modules.ai.models.tinyllm_model import TinyLLMModel
 
 def load_discovery_data():
     """Load existing discovery data from the device database."""
@@ -144,7 +145,7 @@ def extract_device_type_from_response(response: str, device_data: Dict[str, Any]
         return 'smart_home'
     else:
         # Fallback to rule-based classification
-        hostname = device_data.get('hostname', '').lower()
+        hostname = (device_data.get('hostname') or '').lower()
         open_ports = device_data.get('open_ports', [])
         
         if 'router' in hostname or ('gateway' in hostname and 22 in open_ports):
@@ -167,7 +168,7 @@ def calculate_confidence(ai_response: str, device_data: Dict[str, Any]) -> float
         confidence += 0.2
     
     # Higher confidence if multiple indicators align
-    hostname = device_data.get('hostname', '').lower()
+    hostname = (device_data.get('hostname') or '').lower()
     open_ports = device_data.get('open_ports', [])
     
     if hostname != 'unknown' and hostname in response_lower:
@@ -527,11 +528,11 @@ async def main():
     print(f"🌍 Spatial features: {len(geojson_features)}")
     print(f"🎓 Fine-tuning examples: {len(fine_tuning_examples)}")
     
-    print(f"\n📈 Device type distribution:")
+    print("\n📈 Device type distribution:")
     for device_type, count in device_types.items():
         print(f"  - {device_type}: {count}")
     
-    print(f"\n🚀 AI-Enhanced datasets ready for:")
+    print("\n🚀 AI-Enhanced datasets ready for:")
     print("  - Advanced machine learning training")
     print("  - Language model fine-tuning with AI insights")
     print("  - Security analysis and threat detection")

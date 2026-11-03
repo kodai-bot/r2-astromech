@@ -23,8 +23,7 @@ R2 Advanced Features:
 import asyncio
 import re
 import ipaddress
-import subprocess
-from typing import List, Dict, Any, Optional
+from typing import List, Optional
 from datetime import datetime
 
 from .interfaces import DiscoveryScanner, DeviceInfo, ScannerConfig

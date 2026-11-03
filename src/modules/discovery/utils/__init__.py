@@ -1,14 +1,7 @@
 """
-Discovery Utility Modules
+Discovery utility modules.
 
-Support utilities for discovery scanners including network calculations,
-MAC vendor lookups, and protocol detection helpers.
+Planned: shared network calculations (NetworkUtils) and MAC vendor lookup
+(VendorLookup) for the scanners. Not written yet; the scanners currently do
+this inline. See docs/REVIEW.md.
 """
-
-from .network_utils import NetworkUtils
-from .vendor_lookup import VendorLookup
-
-__all__ = [
-    "NetworkUtils",
-    "VendorLookup"
-]

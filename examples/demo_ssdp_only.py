@@ -16,10 +16,10 @@ import os
 from datetime import datetime
 
 # Add src to path for imports
-sys.path.insert(0, os.path.dirname(__file__))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
-from src.core.events import EventBus, create_event, R2Events
+from src.core.events import EventBus, R2Events
 from src.core.config import Configuration
 from src.modules.discovery.scanners.interfaces import ScannerConfig
 from src.modules.discovery.scanners.ssdp_scanner import SSDPScanner
@@ -120,7 +120,7 @@ class R2SSDPDemo:
             devices = await self.ssdp_scanner.scan("network", scan_id)
             
             # Display results
-            print(f"\n🎉 SSDP Discovery Complete!")
+            print("\n🎉 SSDP Discovery Complete!")
             print(f"📊 Found {len(devices)} UPnP devices")
             print("=" * 50)
             
@@ -161,7 +161,7 @@ class R2SSDPDemo:
                     dtype = device.device_type
                     device_types[dtype] = device_types.get(dtype, 0) + 1
                 
-                print(f"\n📈 Discovery Summary:")
+                print("\n📈 Discovery Summary:")
                 for dtype, count in device_types.items():
                     print(f"   • {dtype.replace('_', ' ').title()}: {count}")
                 
@@ -229,8 +229,8 @@ async def main():
         # Stop demo
         await demo.stop()
         
-        print(f"\n🎉 R2-A1 SSDP Demo completed successfully!")
-        print(f"📊 Demonstrated SSDP/UPnP discovery capabilities")
+        print("\n🎉 R2-A1 SSDP Demo completed successfully!")
+        print("📊 Demonstrated SSDP/UPnP discovery capabilities")
         
         return 0
         

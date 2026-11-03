@@ -8,8 +8,7 @@ environment-specific configurations and hot-reloading.
 import os
 import yaml
 import json
-from typing import Any, Dict, Optional, Union
-from pathlib import Path
+from typing import Any, Dict, Optional
 import logging
 
 from .interfaces import IConfiguration

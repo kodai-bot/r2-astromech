@@ -5,7 +5,6 @@ This module coordinates the generation of training datasets by combining
 network discovery data with AI analysis from TinyLLM model.
 """
 
-import asyncio
 import os
 from typing import Dict, List, Any, Optional
 from datetime import datetime

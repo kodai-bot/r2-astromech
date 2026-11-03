@@ -28,14 +28,12 @@ import ipaddress
 import platform
 import re
 import hashlib
-import time
 from typing import List, Dict, Optional, Any
 from datetime import datetime
-import logging
 import json
 import xml.etree.ElementTree as ET
 
-from ...core.interfaces import IModule, ModuleStatus
+from ...core.interfaces import ModuleStatus
 from ...core.events import EventBus, create_event, R2Events
 from ..discovery.interfaces import INetworkScanner
 from ...utils.exceptions import R2NetworkException, R2ModuleException
@@ -440,7 +438,7 @@ class ModularNetworkScanner(INetworkScanner):
             self.logger.info(f"Starting network scan: {target_network}")
             
             # Initialize scan state
-            print(f"🔧 DEBUG: Initializing scan state...")
+            print("🔧 DEBUG: Initializing scan state...")
             self.is_scanning = True
             self.current_scan_id = scan_id
             self.scan_progress = 0.0
@@ -448,7 +446,7 @@ class ModularNetworkScanner(INetworkScanner):
             print(f"🔧 DEBUG: Scan state initialized. is_scanning={self.is_scanning}")
             
             # Publish scan started event
-            print(f"🔧 DEBUG: Publishing scan started event...")
+            print("🔧 DEBUG: Publishing scan started event...")
             try:
                 await asyncio.wait_for(
                     self.event_bus.publish(create_event(
@@ -463,9 +461,9 @@ class ModularNetworkScanner(INetworkScanner):
                     )),
                     timeout=5.0  # 5 second timeout
                 )
-                print(f"🔧 DEBUG: Scan started event published successfully")
+                print("🔧 DEBUG: Scan started event published successfully")
             except asyncio.TimeoutError:
-                print(f"❌ DEBUG: Event publishing timed out after 5 seconds!")
+                print("❌ DEBUG: Event publishing timed out after 5 seconds!")
                 # Continue anyway - don't let event issues block the scan
             except Exception as e:
                 print(f"❌ DEBUG: Event publishing failed: {e}")
@@ -477,7 +475,7 @@ class ModularNetworkScanner(INetworkScanner):
             print(f"🔧 DEBUG: ping_sweep returned {len(active_hosts)} active hosts")
             
             # Analyze each discovered device
-            print(f"\n🔬 R2-D2 Beginning Deep Analysis Phase...")
+            print("\n🔬 R2-D2 Beginning Deep Analysis Phase...")
             print(f"📊 Analyzing {len(active_hosts)} discovered devices...")
             
             for i, host in enumerate(active_hosts):
@@ -555,7 +553,7 @@ class ModularNetworkScanner(INetworkScanner):
                 self.scan_progress = (i + 1) / len(active_hosts) * 100
             
             # Generate network fingerprint
-            print(f"\n🔍 Generating Network Fingerprint...")
+            print("\n🔍 Generating Network Fingerprint...")
             gateway_ip = await self._get_default_gateway()
             network_fingerprint = self._generate_network_fingerprint(
                 target_network, 
@@ -572,7 +570,7 @@ class ModularNetworkScanner(INetworkScanner):
             self.device_database.add_network_fingerprint(network_fingerprint)
             
             # Publish scan completed event with timeout protection
-            print(f"🔧 DEBUG: Publishing NETWORK_SCAN_COMPLETED event...")
+            print("🔧 DEBUG: Publishing NETWORK_SCAN_COMPLETED event...")
             try:
                 await asyncio.wait_for(
                     self.event_bus.publish(create_event(
@@ -589,9 +587,9 @@ class ModularNetworkScanner(INetworkScanner):
                     )),
                     timeout=5.0  # 5 second timeout
                 )
-                print(f"✅ DEBUG: NETWORK_SCAN_COMPLETED event published successfully")
+                print("✅ DEBUG: NETWORK_SCAN_COMPLETED event published successfully")
             except asyncio.TimeoutError:
-                print(f"⏰ DEBUG: NETWORK_SCAN_COMPLETED event timed out")
+                print("⏰ DEBUG: NETWORK_SCAN_COMPLETED event timed out")
             except Exception as e:
                 print(f"❌ DEBUG: NETWORK_SCAN_COMPLETED event failed: {e}")
             
@@ -1031,7 +1029,7 @@ class ModularNetworkScanner(INetworkScanner):
                 print(f"⚠️ mDNS discovery failed: {e}")
                 self.logger.warning(f"mDNS discovery failed: {e}")
         else:
-            print(f"ℹ️ mDNS discovery not available (tools not installed)")
+            print("ℹ️ mDNS discovery not available (tools not installed)")
         
         # Final results
         final_hosts = sorted(list(all_hosts))
@@ -1561,8 +1559,8 @@ class ModularNetworkScanner(INetworkScanner):
         }
         
         open_ports = device_info.get('open_ports', [])
-        hostname = device_info.get('hostname', '').lower()
-        os_family = device_info.get('os_family', '').lower()
+        hostname = (device_info.get('hostname') or '').lower()
+        os_family = (device_info.get('os_family') or '').lower()
         
         # NAS/Storage device detection (highest priority)
         synology_ports = [5000, 5001, 8006, 8007, 9000, 9001]

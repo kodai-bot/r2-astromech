@@ -15,7 +15,8 @@ from datetime import datetime
 from typing import Dict, List, Any
 
 # Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
 def load_discovery_data():
     """Load existing discovery data from the device database."""
@@ -59,7 +60,7 @@ def format_device_for_training(device_id: str, device_data: Dict[str, Any]) -> D
     }
     
     # Simple device classification based on patterns
-    hostname = device_data.get('hostname', '').lower()
+    hostname = (device_data.get('hostname') or '').lower()
     open_ports = device_data.get('open_ports', [])
     
     device_type = 'unknown'
@@ -359,7 +360,7 @@ def main():
     print("  - Geospatial analysis")
     print("  - IoT device classification")
     
-    print(f"\n📈 Device type distribution:")
+    print("\n📈 Device type distribution:")
     for device_type, count in metadata["statistics"]["device_types"].items():
         print(f"  - {device_type}: {count}")
     

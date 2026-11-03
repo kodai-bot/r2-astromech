@@ -11,10 +11,10 @@ import sys
 import os
 import logging
 import signal
-from typing import List
 
 # Add src to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [ROOT, os.path.join(ROOT, "src")]
 
 from src.core.container import DIContainer
 from src.core.config import Configuration
@@ -130,7 +130,7 @@ class R2ModularAIDemo:
     async def run_ai_demo(self) -> None:
         """Run the AI system demo"""
         try:
-            print(f"\n🤖 R2-D2 Modular AI System Demo")
+            print("\n🤖 R2-D2 Modular AI System Demo")
             print("=" * 60)
             print("This demo shows R2's AI capabilities with:")
             print("• Phi-3 model for general conversation")
@@ -141,12 +141,12 @@ class R2ModularAIDemo:
             
             # Show available models
             available_models = await self.ai_manager.get_available_models()
-            print(f"\n📋 Available AI Models:")
+            print("\n📋 Available AI Models:")
             for model in available_models:
                 print(f"   • {model}")
             
             # Test Phi-3 model
-            print(f"\n🧠 Testing Phi-3 Model (General Conversation)")
+            print("\n🧠 Testing Phi-3 Model (General Conversation)")
             print("-" * 50)
             
             success = await self.ai_manager.load_model('phi-3')
@@ -174,7 +174,7 @@ class R2ModularAIDemo:
                 print("❌ Failed to load Phi-3 model")
             
             # Test TinyLLM model
-            print(f"\n🔬 Testing TinyLLM Model (IoT Analysis)")
+            print("\n🔬 Testing TinyLLM Model (IoT Analysis)")
             print("-" * 50)
             
             success = await self.ai_manager.switch_model('tinyllm')
@@ -202,14 +202,14 @@ class R2ModularAIDemo:
                 print("❌ Failed to load TinyLLM model")
             
             # Show model status
-            print(f"\n📊 Model Status:")
+            print("\n📊 Model Status:")
             status = await self.ai_manager.get_model_status()
             print(f"   Current Model: {status.get('current_model', 'None')}")
             print(f"   Status: {status.get('status', 'Unknown')}")
             
             # Show memory usage
             memory_info = await self.ai_manager.get_memory_usage()
-            print(f"\n💾 Memory Usage:")
+            print("\n💾 Memory Usage:")
             print(f"   System Memory: {memory_info['system_memory']['used_mb']}MB / {memory_info['system_memory']['total_mb']}MB")
             if 'gpu_memory' in memory_info:
                 print(f"   GPU Memory: {memory_info['gpu_memory']['allocated_mb']}MB / {memory_info['gpu_memory']['total_mb']}MB")
@@ -276,11 +276,11 @@ async def main():
         await asyncio.sleep(1)
         
         # Run AI demo
-        print(f"\n🚀 Starting AI System Demo...")
-        print(f"📡 This will demonstrate both AI models and their capabilities")
-        print(f"🎵 Audio events will play for each interaction (if sound files are available)")
-        print(f"📝 Text output will show detailed AI responses")
-        print(f"\nPress Enter to start, or Ctrl+C to exit...")
+        print("\n🚀 Starting AI System Demo...")
+        print("📡 This will demonstrate both AI models and their capabilities")
+        print("🎵 Audio events will play for each interaction (if sound files are available)")
+        print("📝 Text output will show detailed AI responses")
+        print("\nPress Enter to start, or Ctrl+C to exit...")
         
         try:
             input()  # Wait for user input
@@ -298,13 +298,13 @@ async def main():
         # Stop system
         await demo.stop()
         
-        print(f"\n🎉 Demo completed successfully!")
-        print(f"📊 The modular AI system demonstrated:")
-        print(f"   • Event-driven model management")
-        print(f"   • Phi-3 general conversation")
-        print(f"   • TinyLLM IoT analysis")
-        print(f"   • R2 sound translation")
-        print(f"   • Proper error handling and cleanup")
+        print("\n🎉 Demo completed successfully!")
+        print("📊 The modular AI system demonstrated:")
+        print("   • Event-driven model management")
+        print("   • Phi-3 general conversation")
+        print("   • TinyLLM IoT analysis")
+        print("   • R2 sound translation")
+        print("   • Proper error handling and cleanup")
         
         return 0
         

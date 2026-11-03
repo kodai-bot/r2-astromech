@@ -5,9 +5,8 @@ This module defines the interfaces for network discovery functionality
 including network scanning, protocol detection, and device analysis.
 """
 
-from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional, Union
-from datetime import datetime
+from abc import abstractmethod
+from typing import Any, Dict, List, Optional
 
 from ...core.interfaces import IModule
 

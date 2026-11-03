@@ -20,16 +20,13 @@ Features:
 
 import asyncio
 import socket
-import struct
-import logging
 import xml.etree.ElementTree as ET
 from typing import List, Dict, Any, Optional, Tuple
-from urllib.parse import urlparse
 import aiohttp
 from datetime import datetime
 
 from .interfaces import DiscoveryScanner, DeviceInfo, ScannerConfig
-from core.events import EventBus, create_event, R2Events
+from core.events import EventBus
 
 import sys
 import os
@@ -114,7 +111,7 @@ class SSDPScanner(DiscoveryScanner):
             self.logger.error("Scanner not initialized")
             return []
         
-        self.logger.info(f"🔍 Starting SSDP/UPnP discovery scan")
+        self.logger.info("🔍 Starting SSDP/UPnP discovery scan")
         
         try:
             # Perform SSDP discovery for each search target
@@ -471,9 +468,9 @@ class SSDPScanner(DiscoveryScanner):
             device_info.hostname.lower(),
             device_info.vendor.lower(),
             device_info.os_info.lower(),
-            device_info.metadata.get('upnp_device_type', '').lower(),
-            device_info.metadata.get('ssdp_st', '').lower(),
-            device_info.metadata.get('ssdp_server', '').lower()
+            (device_info.metadata.get('upnp_device_type') or '').lower(),
+            (device_info.metadata.get('ssdp_st') or '').lower(),
+            (device_info.metadata.get('ssdp_server') or '').lower()
         ])
         
         # Match against device patterns
@@ -483,7 +480,7 @@ class SSDPScanner(DiscoveryScanner):
                     return device_type
         
         # Default based on UPnP device type
-        upnp_type = device_info.metadata.get('upnp_device_type', '').lower()
+        upnp_type = (device_info.metadata.get('upnp_device_type') or '').lower()
         if 'mediarenderer' in upnp_type:
             return 'media_player'
         elif 'mediaserver' in upnp_type:

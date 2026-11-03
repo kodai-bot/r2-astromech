@@ -1,31 +1,13 @@
+# Core: network discovery, device database, status output.
 numpy
-pyaudio
-pygame  # For R2 audio playback
 requests
 aiohttp>=3.8.0
-python-nmap
-bluepy
+python-nmap        # needs the nmap program: sudo apt install nmap
 pyyaml
-netifaces>=0.11.0
-
-# AI/ML Dependencies
-torch>=2.0.0
-transformers>=4.35.0
-accelerate>=0.20.0
-sentencepiece>=0.1.99
-protobuf>=3.20.0
-
-# Optional: For better performance
-# torch-audio  # Uncomment if audio processing features are needed
-# optimum[onnxruntime]  # Uncomment for ONNX optimization
-
-# System monitoring
 psutil>=5.9.0
+netifaces>=0.11.0  # unmaintained, no wheels for current Python; to be replaced by psutil (docs/REVIEW.md)
 
-# Development and Testing
-pytest>=7.0.0
-pytest-asyncio>=0.21.0
-black>=23.0.0
-flake8>=6.0.0
-
-# Add others as needed
+# Audio and Bluetooth (need system libraries: portaudio19-dev, libglib2.0-dev)
+pyaudio
+pygame             # R2 audio playback
+bluepy

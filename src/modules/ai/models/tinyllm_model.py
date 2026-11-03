@@ -6,12 +6,10 @@ that's trained on IoT sensor data for R2's network analysis capabilities.
 """
 
 import torch
-from transformers import pipeline, BitsAndBytesConfig
+from transformers import pipeline
 import logging
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, List
 import re
-import json
-import numpy as np
 from datetime import datetime
 
 from ..interfaces import IAIModel
@@ -94,7 +92,7 @@ class TinyLLMModel(IAIModel):
             'encryption_indicators': ['ssl', 'tls', 'https', 'ssh']
         }
         
-        self.logger.info(f"TinyLLM model initialized for IoT analysis")
+        self.logger.info("TinyLLM model initialized for IoT analysis")
     
     @property
     def model_name(self) -> str:
@@ -309,7 +307,7 @@ class TinyLLMModel(IAIModel):
             devices = self._extract_device_info(input_text)
             protocols = self._extract_protocol_info(input_text)
             
-            analysis = f"IoT Analysis Results:\n"
+            analysis = "IoT Analysis Results:\n"
             analysis += f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
             
             if devices:
@@ -340,7 +338,7 @@ class TinyLLMModel(IAIModel):
             ips = re.findall(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b', input_text)
             ports = re.findall(r'\b(?:[0-9]{1,5})\b', input_text)
             
-            analysis = f"Network Analysis Results:\n"
+            analysis = "Network Analysis Results:\n"
             analysis += f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
             
             if ips:
@@ -363,7 +361,7 @@ class TinyLLMModel(IAIModel):
     async def _generate_security_analysis(self, input_text: str, **kwargs) -> str:
         """Generate security-specific analysis"""
         try:
-            analysis = f"Security Assessment Results:\n"
+            analysis = "Security Assessment Results:\n"
             analysis += f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
             
             # Check for security indicators

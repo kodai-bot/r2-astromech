@@ -9,6 +9,7 @@ initializing all scanning modules and directing the discovery sequence.
 """
 
 import asyncio
+import ipaddress
 import sys
 import os
 import logging
@@ -151,15 +152,17 @@ class R2NetworkScanDirector:
                 print("❌ Discovery Engine initialization failed")
                 return
             
-            # Use a default network range for demo
-            network_range = "192.168.1.0/24"
-            
-            print(f"\n🔍 R2-D2 Discovery Engine Scan")
-            print(f"   🌐 Target network: {network_range}")
-            print(f"   📊 This will scan 254 IP addresses (1-254)")
-            print(f"   🎵 Listen for R2's chirps as devices are discovered!")
-            print(f"   ⏳ This may take a few minutes...")
-            print(f"   🚀 Using new Discovery Engine for comprehensive scanning!")
+            # Network to scan: discovery.networks.default in config/r2_config.yaml.
+            # Only scan networks you own or have permission to scan.
+            network_range = self.config.get("discovery.networks.default", "192.168.1.0/24")
+            host_count = ipaddress.ip_network(network_range, strict=False).num_addresses - 2
+
+            print("\n🔍 R2-D2 Discovery Engine Scan")
+            print(f"   🌐 Target network: {network_range} (set in config/r2_config.yaml)")
+            print(f"   📊 This will scan {host_count} IP addresses")
+            print("   🎵 Listen for R2's chirps as devices are discovered!")
+            print("   ⏳ This may take a few minutes...")
+            print("   🚀 Using new Discovery Engine for comprehensive scanning!")
             
             await self._scan_with_discovery_engine(network_range)
             
@@ -169,12 +172,12 @@ class R2NetworkScanDirector:
     async def _scan_with_discovery_engine(self, network_range: str) -> None:
         """Scan network using the DiscoveryEngine directly"""
         try:
-            print(f"\n📡 PHASE 1: DEVICE DISCOVERY")
+            print("\n📡 PHASE 1: DEVICE DISCOVERY")
             print(f"🔍 Starting multi-protocol device discovery on {network_range}...")
-            print(f"   • ARP Table Analysis")
-            print(f"   • SSDP/UPnP Multicast Discovery") 
-            print(f"   • mDNS Service Discovery")
-            print(f"   • Traditional Network Ping")
+            print("   • ARP Table Analysis")
+            print("   • SSDP/UPnP Multicast Discovery") 
+            print("   • mDNS Service Discovery")
+            print("   • Traditional Network Ping")
             print("⏳ This may take a few moments...")
             
             # Reset counters for new scan
@@ -198,12 +201,12 @@ class R2NetworkScanDirector:
             await self._report_phase_transition("discovery", "scanning", f"{len(devices)} devices found, starting analysis")
             
             # Display discovery results
-            print(f"\n✅ PHASE 1 COMPLETE: Device Discovery")
+            print("\n✅ PHASE 1 COMPLETE: Device Discovery")
             print(f"📊 Total unique devices discovered: {len(devices)}")
-            print(f"🔍 Discovery methods used: ARP + SSDP + mDNS + Ping")
+            print("🔍 Discovery methods used: ARP + SSDP + mDNS + Ping")
             
             if devices:
-                print(f"\n📡 Discovered Devices:")
+                print("\n📡 Discovered Devices:")
                 for i, device in enumerate(devices, 1):
                     ip = device.ip
                     status = device.status
@@ -240,11 +243,11 @@ class R2NetworkScanDirector:
                             service_list = [f"{port}:{service}" for port, service in device.services.items()]
                             print(f"     🛠️  Services: {', '.join(service_list)}")
                     else:
-                        print(f"     🔒 No open ports detected")
+                        print("     🔒 No open ports detected")
                     
                     # Show mDNS services
                     if device.mdns_services:
-                        print(f"     📻 mDNS Services:")
+                        print("     📻 mDNS Services:")
                         for service in device.mdns_services:
                             service_name = service.get('name', 'Unknown')
                             service_type = service.get('type', 'Unknown')
@@ -260,9 +263,9 @@ class R2NetworkScanDirector:
                 return
             
             # Simulate Phase 2: Device Analysis
-            print(f"\n📡 PHASE 2: DEVICE ANALYSIS & PORT SCANNING")
+            print("\n📡 PHASE 2: DEVICE ANALYSIS & PORT SCANNING")
             print(f"🔬 Analyzing {len(devices)} discovered devices...")
-            print(f"🔍 Methods: Port scanning, service enumeration, OS fingerprinting")
+            print("🔍 Methods: Port scanning, service enumeration, OS fingerprinting")
             print("🤖 *R2 switches to port scanning sounds*")
             
             # For demo purposes, just show that we would scan each device
@@ -276,10 +279,10 @@ class R2NetworkScanDirector:
                     except Exception as e:
                         logger.debug(f"Audio failed: {e}")
             
-            print(f"\n✅ PHASE 2 COMPLETE: Device Analysis")
-            print(f"🎯 R2-A1 Network Discovery Mission Complete!")
+            print("\n✅ PHASE 2 COMPLETE: Device Analysis")
+            print("🎯 R2-A1 Network Discovery Mission Complete!")
             print(f"📊 Successfully discovered and analyzed {len(devices)} devices")
-            print(f"🚀 Multi-phase scanning: Discovery → Analysis → Complete!")
+            print("🚀 Multi-phase scanning: Discovery → Analysis → Complete!")
             
         except Exception as e:
             print(f"❌ Discovery Engine scan failed: {e}")
@@ -347,11 +350,11 @@ class R2NetworkScanDirector:
             devices = await self.network_scanner.scan_network(network_range)
             
             # Display final results
-            print(f"\n\n🎯 Final Scan Results:")
+            print("\n\n🎯 Final Scan Results:")
             print(f"📊 Devices found: {len(devices)}")
             
             if devices:
-                print(f"\n📡 Discovered Devices:")
+                print("\n📡 Discovered Devices:")
                 for i, device in enumerate(devices, 1):
                     ip = device.get('ip', 'unknown')
                     status = device.get('status', 'unknown')
@@ -384,20 +387,20 @@ class R2NetworkScanDirector:
                             service_list = [f"{port}:{service}" for port, service in services.items()]
                             print(f"     🛠️  Services: {', '.join(service_list)}")
                     else:
-                        print(f"     🔒 No open ports detected")
+                        print("     🔒 No open ports detected")
             else:
                 print("🤔 No devices found on this network")
             
-            print(f"\n✅ Device scan complete!")
+            print("\n✅ Device scan complete!")
             
             # Show R2's environmental analysis
-            print(f"\n🧠 R2-D2 Environmental Analysis")
+            print("\n🧠 R2-D2 Environmental Analysis")
             print("=" * 60)
             self.network_scanner.device_database.print_network_summary()
             
             print(f"\n🤖 R2-A1 says: 'I have catalogued {len(devices)} devices in my environment!'")
-            print(f"📊 Database updated with comprehensive device intelligence.")
-            print(f"🚀 Discovery Engine provided multi-phase scanning (ARP + Traditional + mDNS)!")
+            print("📊 Database updated with comprehensive device intelligence.")
+            print("🚀 Discovery Engine provided multi-phase scanning (ARP + Traditional + mDNS)!")
             
         except Exception as e:
             print(f"❌ Device scan failed: {e}")
@@ -449,7 +452,7 @@ class R2NetworkScanDirector:
     
     async def _report_phase_transition(self, from_phase: str, to_phase: str, context: str = "") -> None:
         """Report clear phase transitions"""
-        print(f"\n🔄 PHASE TRANSITION")
+        print("\n🔄 PHASE TRANSITION")
         print(f"   📤 Completing: {from_phase.upper()}")
         print(f"   📥 Starting: {to_phase.upper()}")
         if context:
@@ -465,7 +468,7 @@ class R2NetworkScanDirector:
         print(f"🔥 DEBUG: _on_scan_started called! Event: {event.name}")
         import time
         self.scan_start_time = time.time()
-        print(f"🚀 R2-A1 scan initiated...")
+        print("🚀 R2-A1 scan initiated...")
         
     async def _on_device_discovered(self, event) -> None:
         """Handle device discovered event - different sounds for discovery vs scanning phases"""
@@ -522,7 +525,7 @@ class R2NetworkScanDirector:
             # Fallback for unknown phase
             print(f"🎉 R2-A1 DISCOVERY! Device found: {ip} (phase: {self.scan_phase})")
             print(f"   🔍 Discovery method: {scanner}")
-            print(f"   🤖 *R2 chirps* (Fallback mode)")
+            print("   🤖 *R2 chirps* (Fallback mode)")
             
             # Play fallback discovery sound
             try:
@@ -586,11 +589,11 @@ class R2NetworkScanDirector:
                     print(f"   ❌ {ip} - offline")
             
             # Display results
-            print(f"\n🎯 Quick Scan Results:")
+            print("\n🎯 Quick Scan Results:")
             print(f"📊 Devices found: {len(devices)}")
             
             if devices:
-                print(f"\n📡 Active Devices:")
+                print("\n📡 Active Devices:")
                 for i, device in enumerate(devices, 1):
                     ip = device.get('ip', 'unknown')
                     status = device.get('status', 'unknown')
@@ -608,11 +611,11 @@ class R2NetworkScanDirector:
                             service_list = [f"{port}:{service}" for port, service in services.items()]
                             print(f"     🛠️  Services: {', '.join(service_list)}")
                     else:
-                        print(f"     🔒 No open ports detected")
+                        print("     🔒 No open ports detected")
             else:
                 print("🤔 No active devices found in quick scan")
             
-            print(f"\n✅ Quick scan complete!")
+            print("\n✅ Quick scan complete!")
             
         except Exception as e:
             print(f"❌ Quick scan failed: {e}")
@@ -681,12 +684,12 @@ async def main():
         # Stop system
         await scan_director.stop()
         
-        print(f"\n🎉 Scan director completed successfully!")
-        print(f"📊 The scan director orchestrated:")
-        print(f"   • Network discovery capabilities")
-        print(f"   • User network selection")
-        print(f"   • Event-driven communication")
-        print(f"   • Audio and text output coordination")
+        print("\n🎉 Scan director completed successfully!")
+        print("📊 The scan director orchestrated:")
+        print("   • Network discovery capabilities")
+        print("   • User network selection")
+        print("   • Event-driven communication")
+        print("   • Audio and text output coordination")
         
         return 0
         
