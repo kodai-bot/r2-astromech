@@ -1,205 +1,94 @@
-# Industrial Automata R2 NetRecon Astromech
+# R2 Astromech: network discovery testbed
 
-**Autonomous Network Discovery and Analysis System**
+A hobby robotics project: the software side of a maintenance "droid" inspired by the astromechs of
+Star Wars. R2 joins a local network, works out what is on it, and reports back in text and R2-style
+sounds. The idea behind it, that devices should be easy to inspect and repair, is written up in a
+three-part series on allismotion.org:
 
-> *"Modularity, Reliability, Intelligence"*  
+1. [Teaching an Old Droid New Tricks](https://allismotion.org/teaching-an-old-droid-new-tricks/)
+2. [The Death of the Helper Droid](https://allismotion.org/the-death-of-the-helper-droid-how-modular-design-philosophy-gave-way-to-vendor-lock-in/)
+3. [Universal Maintenance Design](https://allismotion.org/universal-maintenance-design-making-infrastructure-r2-accessible/)
 
+**Status: experimental (2025).** A personal testbed, not a product or a service. It runs on a Linux
+PC and is being moved to a Raspberry Pi 5. See [docs/REVIEW.md](docs/REVIEW.md) for an honest
+assessment of the code and the planned work.
 
----
+## What it does
 
-## Product Overview
+- **Discovers devices** with several methods: the ARP table, mDNS/Bonjour, SSDP/UPnP, SNMP and
+  port scans (via nmap), coordinated by a multi-phase discovery engine
+  (`src/modules/discovery/scanners/`).
+- **Keeps a device database**: each device's first and last sighting, open ports and a short
+  status history (`src/modules/discovery/device_database.py`).
+- **Reports in character**: text output plus R2-style sounds (`src/modules/personality/`).
+- **Optional local AI analysis**: small language models (TinyLlama, Phi-3) describe devices
+  (`src/modules/ai/`). This needs the large `requirements-ai.txt` stack.
+- **Generates training data** for fine-tuning those models from discovery results
+  (`src/modules/training/`).
 
-The **R2-NetRecon Advanced Discovery Astromech** represents the latest evolution in Industrial Automaton's legendary R2-series line. Built with IA's proven modular design philosophy, this specialized astromech unit provides comprehensive network reconnaissance and analysis capabilities for modern environments. 
+Modules talk to each other through an async event bus (`src/core/events.py`) and are wired
+together by a small dependency-injection container (`src/core/container.py`).
 
-The idea here is to actually build helper 'droids with the same functionality as R2-D2 and others in the Star Wars universe. 
+## Responsible use
 
-### Manufacturer Information
-- **Company**: Industrial Automata
-- **Headquarters**: Sligo, Ireland
-- **Product Line**: R2-series Astromech Network Analysis Suite
-- **Model**: R2-NetRecon Advanced Discovery Unit v2.0
-- **Intellex Compatibility**: Jetson Nano
+R2 scans the network it is run on. **Only run it on networks you own or have permission to scan.**
+The target is set in `config/r2_config.yaml` (`discovery.networks.default`).
 
----
+Scan results are written to `data/devices/*.json`. They describe your network, so they are
+git-ignored and never committed.
 
-## Technical Specifications
+## Quick start
 
-### Core Systems
-- **Computer Core**: Jetson Nano Dev Kit/ Raspberry Pi 5
-- **Sensor Array**: To be built
-- **Height**: To be decided
-- **Discovery Modes**: Simple, Comprehensive, Deep Analysis
-
-### Advanced Reconnaissance Capabilities
-
-#### 6-Phase Autonomous Discovery Sequence
-1. **Environmental Awareness** (0-30s) - GPS location, network topology mapping
-2. **Passive Intelligence** (30-90s) - Traffic observation, DNS reconnaissance
-3. **Active Host Discovery** (90-180s) - Multi-method device detection
-4. **Service Discovery** (3-8min) - Port scanning, protocol fingerprinting
-5. **Device Correlation** (1-2min) - Multi-vector device classification
-6. **Analysis Preparation** (30s) - Security assessment, opportunity identification
-
-#### Specialized Scanner Modules
-- **R2-ARP Advanced Reconnaissance Probe** - Stealth ARP table analysis
-- **R2-mDNS Service Intelligence Probe** - Multicast DNS enumeration
-- **R2-SNMP Infrastructure Scanner** - Network device management queries
-- **Enhanced Port Scanner** - Strategic service detection
-
----
-
-## Industrial Automaton Design Philosophy
-
-Following IA's legendary engineering principles:
-
-### ✨ **Modularity**
-- Standardized component interfaces for easy field upgrades
-- Hot-swappable scanner modules following R2 tool complement standards
-- Extensible architecture supporting aftermarket enhancements
-
-### 🔧 **Reliability** 
-- Event-driven architecture with graceful failure handling
-- Multi-method discovery for comprehensive coverage
-- Real-time progress monitoring with R2 audio feedback
-
-### 🧠 **Intelligence**
-- Environmental awareness and adaptive scanning parameters
-- Multi-vector device correlation and classification
-- Autonomous decision-making based on network context
-
----
-
-## Quick Start
-
-### Installation
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/r2_astromech.git
-cd r2_astromech
+sudo apt install nmap portaudio19-dev libglib2.0-dev   # system tools used by the scanners and audio
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt           # core
+pip install -r requirements-ai.txt        # optional: local AI analysis (large)
 
-# Set up virtual environment
-python -m venv r2_venv_new
-source r2_venv_new/bin/activate  # Linux/Mac
-# r2_venv_new\Scripts\activate  # Windows
-
-# Install dependencies
-pip install -r requirements.txt
+python src/main.py --status-only          # check the system starts
+python scan_director.py                   # run a discovery scan of the configured network
 ```
 
-### Basic Operation
-```python
-# Network discovery scan director
-python scan_director.py
+Raspberry Pi: see [docs/RASPBERRY_PI.md](docs/RASPBERRY_PI.md) and `scripts/setup_rpi.sh`.
 
-# Test comprehensive R2 discovery sequence
-python src/main.py --mode comprehensive
+### Trying it without scanning
+
+`data/devices/example/` holds an anonymised device database (documentation-range addresses,
+made-up MAC addresses and hostnames). Copy it into place to try the training-data examples:
+
+```bash
+cp data/devices/example/*.json data/devices/
+python examples/demo_simple_training_data.py
 ```
 
-### Configuration
-Edit `config/r2_config.yaml` to customize:
-- Discovery modes and timing
-- Scanner module settings  
-- Audio feedback preferences
-- Network targeting parameters
+## Tests
 
----
-
-## Modular Architecture
-
-The R2-NetRecon system implements Industrial Automaton's signature modular design:
-
-```
-src/modules/
-├── discovery/           # Core network analysis modules
-│   ├── network_scanner.py     # Primary orchestrator
-│   ├── scanners/              # Specialized scanner modules
-│   │   ├── discovery_engine.py    # 6-phase sequence controller
-│   │   ├── arp_scanner.py         # ARP reconnaissance
-│   │   ├── mdns_scanner.py        # mDNS service discovery
-│   │   └── snmp_scanner.py        # SNMP infrastructure analysis
-│   └── device_database.py    # Device intelligence storage
-├── personality/         # R2 audio and behavioral systems
-│   ├── audio_engine.py        # Sound generation and feedback
-│   └── text_output.py         # Human-readable status reporting
-└── training/           # AI-powered device analysis
-    ├── data_formatter.py      # Training data generation
-    └── training_generator.py  # Machine learning integration
+```bash
+pip install -r requirements-dev.txt
+pytest          # device database, event bus, configuration
+ruff check .
 ```
 
----
+The tests cover the core only; the scanners have none yet (see [docs/REVIEW.md](docs/REVIEW.md)).
 
-## Advanced Features
+## Layout
 
-### 🎵 **R2 Audio Feedback**
-- Authentic astromech sounds for scan progress
-- Different chirps for device discovery, analysis, and completion
-- Contextual audio responses based on network findings
+| Path | Contents |
+|---|---|
+| `scan_director.py` | Runs a full discovery scan with audio feedback |
+| `src/main.py` | System entry point (`--status-only`, `--health-check`) |
+| `src/core/` | Configuration, event bus, dependency container, interfaces |
+| `src/modules/discovery/` | Scanners, discovery engine, device database |
+| `src/modules/personality/` | Text and audio output |
+| `src/modules/ai/`, `src/modules/training/` | Optional language-model analysis and training data |
+| `examples/` | Demo scripts (see `examples/README.md`) |
+| `config/` | Configuration files |
+| `data/sounds/` | R2 sound samples |
+| `docs/` | Review, Raspberry Pi guide, development notes |
 
-### 🔍 **Multi-Method Discovery**
-- ARP table mining for quiet device detection
-- Traditional ping/nmap/masscan for active scanning  
-- mDNS/Bonjour for rich service information
-- SNMP probing for network infrastructure analysis
+## Licence
 
-### 🤖 **AI-Powered Analysis**
-- TinyLLM integration for device classification
-- Training data generation for continuous learning
-- Hybrid rule-based and AI-driven device identification
+MIT; see [LICENSE](LICENSE). Provided as-is, without warranty.
 
----
-
-## Compatibility & Requirements
-
-### Supported Platforms
-- Linux (Ubuntu 20.04+, Debian 10+)
-- macOS (10.15+)
-- Windows 10/11 (with WSL recommended)
-
-### Dependencies
-- Python 3.8+
-- nmap (network scanning)
-- avahi-utils (mDNS discovery)
-- Standard network tools (ping, arp)
-
-### Optional Components
-- masscan (high-speed scanning)
-- GPS hardware support (future)
-- Industrial network protocol modules
-
----
-
-## Inspired by Industrial Automaton Heritage in Star Wars
-
-This project honors the legacy of Industrial Automaton's engineering excellence. The R2-series has served faithfully across the galaxy for decades, from starfighter maintenance to diplomatic missions. Our network analysis capabilities represent the natural evolution of R2's problem-solving intelligence for modern environments.
-
-### Key Design Inspirations
-- **Modular Tool Complement**: Easy field upgrades and customization
-- **Personality Development**: Authentic R2 behavioral responses  
-- **Reliability**: Designed to function in any environment
-- **User Relationship**: Building trust through consistent performance
-
----
-
-## Support & Maintenance
-
-### Warranty
-- 3-year warranty on R2-NetRecon system
-- User support through Industrial Automata community
-- Field-serviceable components with standard R2 tools
-
-### Documentation
-- [Industrial Automaton Heritage](docs/INDUSTRIAL_AUTOMATON_HERITAGE.md)
-- [API Documentation](docs/API_REFERENCE.md)
-- [Scanner Module Development](docs/SCANNER_MODULES.md)
-
----
-
-## License
-
-This project operates under Industrial Automata's open development philosophy, encouraging innovation and community enhancement while maintaining compatibility with R2-series standards.
-
----
-
-*Built with Industrial Automata's legendary quality and engineering excellence.*
-
-*"The most successful robotic platforms balance technical capability with emotional connection and practical utility."*
+Star Wars, R2-D2 and Industrial Automaton are trademarks of Lucasfilm Ltd. This is an unofficial fan
+project and is not affiliated with or endorsed by Lucasfilm.
